@@ -1,0 +1,45 @@
+<script lang="ts">
+import { AsyncPipe } from '@angular/common';
+import { inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { signal } from '@angular/core';
+
+defineMetadata({
+    imports: [AsyncPipe]
+})
+
+  const route = inject(ActivatedRoute);
+  const slug = route.paramMap.pipe(map((params) => params.get('slug')));
+
+    
+
+  const count = signal(0);
+
+  function add() {
+    count.set(count() + 1);
+  }
+
+</script>
+
+<template>
+     <h2>Current: {{ slug | async }}</h2>
+  <div class="container">
+    <button (click)="add()">{{count()}}</button>
+  </div>     
+</template>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+  }
+</style>
