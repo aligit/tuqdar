@@ -11,7 +11,16 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     mainFields: ['module'],
   },
-  plugins: [analog()],
+  plugins: [
+    analog({
+      vite: {
+        // Required to use the Analog SFC format
+        experimental: {
+          supportAnalogFormat: true,
+        },
+      },
+    }),
+  ],
   test: {
     globals: true,
     environment: 'jsdom',
