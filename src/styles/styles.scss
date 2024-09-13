@@ -1,0 +1,22 @@
+@use "@angular/material" as mat;
+@use "./m3-theme" as customTheme;
+@use "./mixins/global-styles" as gs;
+
+body {
+  // @include mat.all-component-themes($theme);
+  @include mat.core-theme(customTheme.$light-theme);
+  @include mat.all-component-themes(customTheme.$light-theme);
+  @include mat.system-level-colors(customTheme.$light-theme);
+  @include gs.global-styles-theme(customTheme.$light-theme);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 30px;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+@include mat.core();
+@include mat.color-variants-backwards-compatibility(customTheme.$light-theme);

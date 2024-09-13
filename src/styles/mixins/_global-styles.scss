@@ -1,0 +1,15 @@
+@use "@angular/material" as mat;
+
+@mixin global-styles-theme($theme) {
+  $primary: mat.get-theme-color($theme, primary);
+  $on-primary: mat.get-theme-color(
+    $theme,
+    on-primary
+  ); // make sure to include mat.system-level-colors(theme.$light-theme) in your styles.scss for this to work
+
+  // add global styles here
+  .primary {
+    background: $primary;
+    color: $on-primary;
+  }
+}
