@@ -14,13 +14,20 @@ Run `npm start` for a dev server. Navigate to `http://localhost:5173/`. The appl
 
 Run `npm run build` to build the client/server project. The client build artifacts are located in the `dist/analog/public` directory. The server for the API build artifacts are located in the `dist/analog/server` directory.
 
+### Launch in production mode
+
+```
+npx http-server dist/client
+```
+
 ## Test
 
 Run `npm run test` to run unit tests with [Vitest](https://vitest.dev).
 
-## Community
+## Deploy
 
-- Visit and Star the [GitHub Repo](https://github.com/analogjs/analog)
-- Join the [Discord](https://chat.analogjs.org)
-- Follow us on [Twitter](https://twitter.com/analogjs)
-- Become a [Sponsor](https://github.com/sponsors/brandonroberts)
+[Analog Deploy Solutions](https://analogjs.org/docs/features/deployment/providers#deploying-the-project-1)
+
+### Arvancloud containerized solutions with gitlab-github
+
+[PAAS solutions](arvancloud.ir/fa/pricing/paas)
