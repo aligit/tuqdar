@@ -3,7 +3,6 @@ Creating a static website for listing real estate properties, especially villas 
 1. Menu Options:
    For a small real estate website focusing on villas near the sea, I would recommend keeping the menu simple and intuitive. Here's a suggested menu structure:
 
-- Home
 - Properties
 - About Us
 - Contact
