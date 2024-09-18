@@ -9,7 +9,6 @@ body {
   @include mat.all-component-themes(customTheme.$light-theme);
   @include mat.system-level-colors(customTheme.$light-theme);
   @include gs.global-styles-theme(customTheme.$light-theme);
-  font-family: Roboto, "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 30px;
   height: 100%;
