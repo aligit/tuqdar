@@ -1,6 +1,7 @@
 @use "@angular/material" as mat;
 @use "./m3-theme" as customTheme;
 @use "./mixins/global-styles" as gs;
+@import "bootstrap/scss/bootstrap";
 
 body {
   // @include mat.all-component-themes($theme);

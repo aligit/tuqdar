@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => ({
         experimental: {
           supportAnalogFormat: true,
         },
+        inlineStylesExtension: 'scss',
       },
     }),
   ],
