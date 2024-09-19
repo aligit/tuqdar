@@ -1,15 +1,62 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, ViewChild, inject } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Observable } from 'rxjs/internal/Observable';
+import { DeviceDetectorService } from '../../services/device-detector.service';
+import { Subject } from 'rxjs/internal/Subject';
+import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule, RouterLink],
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    RouterLink,
+  ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent { }
+export class HeaderComponent implements OnDestroy {
+  @ViewChild('snav') snav!: MatSidenav;
+  isMobile: boolean = false;
+  private destroy$ = new Subject<void>();
+  deviceDetector = inject(DeviceDetectorService);
+
+  // constructor() {
+  // this.isMobile = this.deviceDetector.isMobileDevice();
+  // this.deviceDetector.isMobileDevice().subscribe({
+  //   next: (isMobile) => {
+  //     if (isMobile) {
+  //       console.log('Mobile');
+  //       // this.snav.mode = 'over';
+  //       // this.snav.close();
+  //     } else {
+  //       console.log('Desktop');
+  //       // this.snav.mode = 'side';
+  //       // this.snav.open();
+  //     }
+  //   },
+  // });
+  // }
+
+  ngOnInit() {
+    this.deviceDetector
+      .isMobileDevice()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((isMobile) => {
+        this.isMobile = isMobile;
+      });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+}
