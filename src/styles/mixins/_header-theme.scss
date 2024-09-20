@@ -1,0 +1,32 @@
+@use "@angular/material" as mat;
+
+@mixin color($theme) {
+  $primary: mat.get-theme-color($theme, primary);
+  $on-primary: mat.get-theme-color($theme, on-primary);
+
+  .mat-toolbar {
+    .logo-container {
+      color: $on-primary;
+
+      .logo {
+        fill: $on-primary;
+      }
+    }
+  }
+}
+
+@mixin typography($theme) {
+  .app-name {
+    font: mat.get-theme-typography($theme, title-large, font);
+  }
+}
+
+@mixin theme($theme) {
+  @if mat.theme-has($theme, color) {
+    @include color($theme);
+  }
+
+  @if mat.theme-has($theme, typography) {
+    @include typography($theme);
+  }
+}

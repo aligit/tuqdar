@@ -1,8 +1,54 @@
+@use "../../../styles/mixins/header-theme" as header-theme;
+@use "@angular/material" as mat;
+
+// .logo-container {
+//   display: flex;
+//   align-items: center;
+//   text-decoration: none;
+//   color: inherit;
+//
+//   .logo {
+//     margin-right: 8px;
+//     fill: currentColor; // This will apply the primary color to the SVG
+//   }
+//
+//   .app-name {
+//     font-size: 1.2rem;
+//     font-weight: 500;
+//   }
+// }
+//
+// .spacer {
+//   flex: 1 1 auto;
+// }
+
 mat-toolbar {
   position: sticky;
   top: 0;
   z-index: 1000;
 }
+
 .spacer {
   flex: 1 1 auto;
 }
+
+// New styles for the logo
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+
+  .logo {
+    margin-right: 8px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .app-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+}
+
+@include header-theme.theme(mat.$theme-config);

@@ -5,7 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Observable } from 'rxjs/internal/Observable';
 import { DeviceDetectorService } from '../../services/device-detector.service';
 import { Subject } from 'rxjs/internal/Subject';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
@@ -51,9 +50,7 @@ export class HeaderComponent implements OnDestroy {
 
   private loadMobileHeader() {
     import('./mobile-header/mobile-header.component').then(
-      ({ MobileHeaderComponent }) => {
-        // You can use this component now
-      },
+      ({ MobileHeaderComponent }) => {},
     );
   }
 
