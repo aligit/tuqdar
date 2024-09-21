@@ -1,32 +1,81 @@
+@use "sass:map";
 @use "@angular/material" as mat;
 
 @mixin color($theme) {
-  $primary: mat.get-theme-color($theme, primary);
-  $on-primary: mat.get-theme-color($theme, on-primary);
+  $color-config: mat.get-color-config($theme);
+  $primary-palette: map.get($color-config, "primary");
+  $accent-palette: map.get($color-config, "accent");
 
-  .mat-toolbar {
-    .logo-container {
+  $primary: mat.get-color-from-palette($primary-palette);
+  $on-primary: mat.get-color-from-palette($primary-palette, "contrast");
+  $accent: mat.get-color-from-palette($accent-palette);
+
+  .custom-toolbar {
+    background-color: $primary;
+    color: $on-primary;
+  }
+
+  .logo-container {
+    a {
+      color: $on-primary;
+    }
+
+    .logo {
+      fill: $on-primary;
+    }
+  }
+
+  .menu-container {
+    .menu-item {
       color: $on-primary;
 
-      .logo {
-        fill: $on-primary;
+      &:hover {
+        background-color: mat.get-color-from-palette(
+          $primary-palette,
+          "lighter"
+        );
       }
     }
+  }
+
+  .cta-button {
+    background-color: $accent;
+    color: mat.get-color-from-palette($accent-palette, "contrast");
   }
 }
 
 @mixin typography($theme) {
-  .app-name {
-    font: mat.get-theme-typography($theme, title-large, font);
+  $typography-config: mat.get-typography-config($theme);
+
+  .logo-container {
+    .app-name {
+      @include mat.typography-level($typography-config, "subtitle-1");
+      font-weight: 700;
+    }
+  }
+
+  .menu-container {
+    .menu-item {
+      @include mat.typography-level($typography-config, "subtitle-1");
+      font-weight: 500;
+    }
+  }
+
+  .cta-button {
+    @include mat.typography-level($typography-config, "button");
+    font-weight: 600;
   }
 }
 
 @mixin theme($theme) {
-  @if mat.theme-has($theme, color) {
+  $color-config: map.get($theme, color);
+  $typography-config: map.get($theme, typography);
+
+  @if $color-config != null {
     @include color($theme);
   }
 
-  @if mat.theme-has($theme, typography) {
+  @if $typography-config != null {
     @include typography($theme);
   }
 }

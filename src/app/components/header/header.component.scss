@@ -1,50 +1,62 @@
 @use "../../../styles/mixins/header-theme" as header-theme;
+@use "../../../styles/m3-theme" as customTheme;
 @use "@angular/material" as mat;
 
-mat-toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.spacer {
-  flex: 1 1 auto;
+.custom-toolbar {
+  height: auto;
+  min-height: 80px; // Adjust this value as needed
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
 }
 
 .logo-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration: none;
-  color: inherit;
-  padding: 8px 16px;
-  height: 100%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    text-align: center; // Center the text
   }
 
   .logo {
     width: 60px;
     height: 60px;
-    margin-bottom: 4px;
   }
 
   .app-name {
     font-size: 1rem;
-    font-weight: 500;
-    text-align: center;
+    font-weight: 700;
+    line-height: 1.2;
   }
 }
 
-.flex-grow-1 {
-  flex-grow: 1;
+.spacer {
+  flex: 1 1 auto;
 }
 
-a[mat-button] {
-  font-weight: bold;
+.menu-container {
+  display: flex;
+  align-items: center;
+
+  .menu-item {
+    font-size: 1.2rem; // Larger font size for menu items
+    font-weight: 600; // Increased font weight for better visibility
+    padding: 0 16px;
+    letter-spacing: 0.5px; // Slight letter spacing for better readability
+  }
 }
 
-@include header-theme.theme(mat.$theme-config);
+.cta-button {
+  margin-left: 16px;
+  font-size: 1.1rem; // Slightly larger font for the CTA button
+  font-weight: 600;
+}
+
+// Include the theme mixin
+@include header-theme.theme(customTheme.$light-theme);

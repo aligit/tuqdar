@@ -1,22 +1,27 @@
 @if (isMobile) {
   <app-mobile-header></app-mobile-header>
 } @else {
-  <mat-toolbar color="primary">
-    <a routerLink="/" class="logo-container">
-      <img
-        src="/swans.svg"
-        alt="املاک دو قو Logo"
-        class="logo"
-        width="60"
-        height="60"
-      />
-      <span class="app-name">املاک دو قو</span>
-    </a>
+  <mat-toolbar color="primary" class="custom-toolbar">
+    <div class="logo-container">
+      <a routerLink="/">
+        <img
+          src="/swans.svg"
+          alt="املاک دو قو Logo"
+          class="logo"
+          width="60"
+          height="60"
+        />
+        <span class="app-name">املاک دو قو</span>
+      </a>
+    </div>
     <span class="spacer"></span>
-    <a mat-button routerLink="/property/toghdar">املاک</a>
-    <a mat-button routerLink="/about">درباره ما</a>
-    <a mat-button routerLink="/contact">اطلاعات تماس</a>
-    <span class="flex-grow-1"></span>
-    <button mat-raised-button color="accent">درخواست بازدید</button>
+    <div class="menu-container">
+      <a mat-button routerLink="/property/toghdar" class="menu-item">املاک</a>
+      <a mat-button routerLink="/about" class="menu-item">درباره ما</a>
+      <a mat-button routerLink="/contact" class="menu-item">اطلاعات تماس</a>
+    </div>
+    <button mat-raised-button color="accent" class="cta-button">
+      درخواست بازدید
+    </button>
   </mat-toolbar>
 }
