@@ -8,6 +8,9 @@
   display: flex;
   align-items: center;
   padding: 8px 16px;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
   background: linear-gradient(to right, #0064b9, #007de5);
 }
 

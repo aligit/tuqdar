@@ -15,10 +15,20 @@ import { HeaderComponent } from './components/header/header.component';
   styles: [
     `
       :host {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .content {
+        flex: 1;
+        padding: 2rem;
         max-width: 1280px;
         margin: 0 auto;
-        padding: 2rem;
-        text-align: center;
+        width: 100%;
       }
     `,
   ],
