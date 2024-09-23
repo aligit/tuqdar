@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   padding: 8px 16px;
+  background: linear-gradient(to right, #0064b9, #007de5);
 }
 
 .logo-container {
@@ -27,9 +28,11 @@
   .logo {
     width: 60px;
     height: 60px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   }
 
   .app-name {
+    color: #fff; // White text color for menu
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.2;
@@ -45,6 +48,11 @@
   align-items: center;
 
   .menu-item {
+    color: #fff; // White text color for menu
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
     font-size: 1.2rem; // Larger font size for menu items
     font-weight: 600; // Increased font weight for better visibility
     padding: 0 16px;
@@ -53,9 +61,17 @@
 }
 
 .cta-button {
-  margin-left: 16px;
-  font-size: 1.1rem; // Slightly larger font for the CTA button
-  font-weight: 600;
+  background-color: #ff4081; // Use a contrasting color
+  color: white;
+  padding: 8px 16px;
+  border-radius: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken(#ff4081, 10%);
+  }
 }
 
 // Include the theme mixin
