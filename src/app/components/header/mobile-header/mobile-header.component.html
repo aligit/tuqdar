@@ -1,1 +1,33 @@
-<p>mobile-header works!</p>
+<header class="mobile-header">
+  <button
+    class="menu-button"
+    (click)="toggleSidenav()"
+    aria-label="Toggle Menu"
+  >
+    <!-- Inline SVG for Menu Icon -->
+    <svg
+      class="menu-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        d="M3 6h18M3 12h18M3 18h18"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
+  </button>
+  <div class="sidenav" [@sidenavAnimation]="isSidenavOpen ? 'open' : 'closed'">
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
