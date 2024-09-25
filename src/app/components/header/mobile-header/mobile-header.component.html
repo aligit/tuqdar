@@ -1,67 +1,39 @@
-<header class="mobile-header">
-  <button
-    class="menu-button"
-    (click)="toggleSidenav()"
-    aria-label="Toggle Menu"
-  >
-    <!-- Menu Icon SVG -->
-    <svg
-      class="menu-icon"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path
-        d="M3 6h18M3 12h18M3 18h18"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-      />
-    </svg>
+<header class="mobile-header mat-elevation-z6">
+  <button mat-icon-button (click)="toggleSidenav()" aria-label="Toggle Menu">
+    <mat-icon>menu</mat-icon>
   </button>
-  <!-- Other header content -->
+  <h1 class="header-title">عنوان برنامه</h1>
 </header>
 
 <div
-  class="sidenav-overlay"
+  class="sidenav-backdrop"
   [class.active]="isSidenavOpen"
   (click)="toggleSidenav()"
 ></div>
 
-<div
-  class="sidenav"
+<nav
+  class="sidenav mat-elevation-z8"
   [@sidenavAnimation]="{
     value: isSidenavOpen ? 'open' : 'closed',
     params: { closedTransform: closedTransform },
   }"
   [class.open]="isSidenavOpen"
 >
-  <nav>
-    <button
-      class="close-button"
+  <mat-nav-list>
+    <div class="sidenav-header">
+      <h2 class="mat-h2">منو</h2>
+      <button mat-icon-button (click)="toggleSidenav()" aria-label="Close Menu">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+    <a
+      mat-list-item
+      *ngFor="let item of menuItems"
+      [routerLink]="item.route"
       (click)="toggleSidenav()"
-      aria-label="Close Menu"
     >
-      <!-- Close Icon SVG -->
-      <svg
-        class="close-icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          d="M18 6L6 18M6 6l12 12"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </svg>
-    </button>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <!-- Other menu items -->
-    </ul>
-  </nav>
-</div>
+      {{ item.label }}
+    </a>
+  </mat-nav-list>
+</nav>
