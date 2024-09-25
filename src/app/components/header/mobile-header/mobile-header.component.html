@@ -4,7 +4,7 @@
     (click)="toggleSidenav()"
     aria-label="Toggle Menu"
   >
-    <!-- Inline SVG for Menu Icon -->
+    <!-- Menu Icon SVG -->
     <svg
       class="menu-icon"
       xmlns="http://www.w3.org/2000/svg"
@@ -20,14 +20,48 @@
       />
     </svg>
   </button>
-  <div class="sidenav" [@sidenavAnimation]="isSidenavOpen ? 'open' : 'closed'">
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
+  <!-- Other header content -->
 </header>
+
+<div
+  class="sidenav-overlay"
+  [class.active]="isSidenavOpen"
+  (click)="toggleSidenav()"
+></div>
+
+<div
+  class="sidenav"
+  [@sidenavAnimation]="{
+    value: isSidenavOpen ? 'open' : 'closed',
+    params: { closedTransform: closedTransform },
+  }"
+  [class.open]="isSidenavOpen"
+>
+  <nav>
+    <button
+      class="close-button"
+      (click)="toggleSidenav()"
+      aria-label="Close Menu"
+    >
+      <!-- Close Icon SVG -->
+      <svg
+        class="close-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          d="M18 6L6 18M6 6l12 12"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+    </button>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <!-- Other menu items -->
+    </ul>
+  </nav>
+</div>

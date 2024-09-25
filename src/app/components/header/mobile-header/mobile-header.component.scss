@@ -1,27 +1,21 @@
 .mobile-header {
-  position: relative;
-  background-color: var(--header-bg-color, #ffffff);
-  padding: 0.5rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  padding: 1rem;
   display: flex;
-  align-items: center;
   justify-content: flex-start;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  z-index: 1000;
 }
 
 .menu-button {
   background: none;
   border: none;
-  padding: 0.5rem;
   cursor: pointer;
-  color: var(--header-icon-color, #000000);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu-button:focus {
-  outline: 2px solid var(--header-focus-color, #005fcc);
-  outline-offset: 2px;
+  padding: 0.5rem;
 }
 
 .menu-icon {
@@ -29,48 +23,75 @@
   height: 24px;
 }
 
-.sidenav {
+.sidenav-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 75%;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.sidenav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 80%;
   max-width: 300px;
-  height: 100%;
-  background-color: var(--sidenav-bg-color, #f9f9f9);
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-  padding: 1rem;
-  z-index: 1000;
+  background-color: #ffffff;
+  z-index: 1002;
   overflow-y: auto;
-}
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-.sidenav nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidenav nav ul li {
-  margin-bottom: 1rem;
-}
-
-.sidenav nav ul li a {
-  text-decoration: none;
-  color: var(--sidenav-text-color, #333333);
-  font-size: 1.1rem;
-}
-
-.sidenav nav ul li a:hover {
-  color: var(--sidenav-hover-color, #005fcc);
-}
-
-@media (max-width: 600px) {
-  .menu-icon {
-    width: 20px;
-    height: 20px;
+  [dir="ltr"] & {
+    left: 0;
+    transform: translateX(-100%);
   }
 
-  .sidenav {
-    width: 100%;
-    max-width: none;
+  [dir="rtl"] & {
+    right: 0;
+    transform: translateX(100%);
   }
+
+  &.open {
+    transform: translateX(0);
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  [dir="ltr"] & {
+    right: 1rem;
+  }
+
+  [dir="rtl"] & {
+    left: 1rem;
+  }
+}
+
+.close-icon {
+  width: 24px;
+  height: 24px;
+}
+
+// Prevent body scrolling when sidenav is open
+body.sidenav-open {
+  overflow: hidden;
+}
+
+// Ensure the menu button is always visible
+html[dir="rtl"] .mobile-header {
+  justify-content: flex-end;
 }
