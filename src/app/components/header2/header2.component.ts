@@ -14,6 +14,7 @@ import { map, shareReplay } from 'rxjs/operators';
   template: `
     <mat-sidenav-container class="sidenav-container">
       <mat-sidenav
+        dir="rtl"
         #drawer
         class="sidenav"
         fixedInViewport
@@ -49,20 +50,14 @@ import { map, shareReplay } from 'rxjs/operators';
   styles: `
     .sidenav-container {
       height: 100%;
-    }
 
-    .sidenav {
-      width: 200px;
-    }
+      .sidenav {
+        width: 200px;
 
-    .sidenav .mat-toolbar {
-      background: inherit;
-    }
-
-    .mat-toolbar.mat-primary {
-      position: sticky;
-      top: 0;
-      z-index: 1;
+        .mat-toolbar {
+          background: inherit;
+        }
+      }
     }
   `,
   standalone: true,
