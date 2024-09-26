@@ -31,3 +31,9 @@ Run `npm run test` to run unit tests with [Vitest](https://vitest.dev).
 ### Arvancloud containerized solutions with gitlab-github
 
 [PAAS solutions](arvancloud.ir/fa/pricing/paas)
+
+### Frequent commands
+
+## Create an inline single file angular component if a small component
+
+- bunx ng generate @angular/material:navigation header2 --inline-style --inline-template --skip-tests --routing --style scss
