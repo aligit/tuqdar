@@ -1,0 +1,8 @@
+// src/styles/components/_index.scss
+
+// @use "../../app/ui/header2/header2-theme" as header2;
+@use "../../app/components/header2/header2-theme" as header2;
+
+@mixin theme($theme) {
+  @include header2.theme($theme);
+}

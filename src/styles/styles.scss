@@ -1,27 +1,23 @@
 @use "@angular/material" as mat;
-@use "./themes/m3-theme" as customTheme;
-@use "./mixins/global-styles" as gs;
-// TODO: Remove webfonts if not used
-@use "./typography/webfonts.scss" as *;
-// TODO: Remove bootstrap if not used
+@use "./themes/all" as themes;
+@use "./typography/config";
+@use "./components";
+@use "./themes/m3-theme";
+@use "./sizes";
+
+@include mat.core();
 // @import "bootstrap/scss/bootstrap";
-@import "./typography/webfonts.scss";
+// @import "./typography/webfonts.scss";
 
 html {
-  // @include mat.core-theme(themes.$my-app-light-theme);
-  // @include mat.button-theme(themes.$my-app-light-theme);
-  // @include mat.icon-theme(themes.$my-app-light-theme);
-  // @include mat.menu-theme(themes.$my-app-light-theme);
-  // @include components.theme(themes.$my-app-light-theme);
+  // Apply the light theme by default
+  @include mat.core-theme(themes.$my-app-light-theme);
+  @include mat.button-theme(themes.$my-app-light-theme);
+  @include mat.icon-theme(themes.$my-app-light-theme);
+  @include mat.menu-theme(themes.$my-app-light-theme);
 
-  // @include mat.all-component-themes($theme);
-  @include mat.core-theme(customTheme.$light-theme);
-  @include mat.all-component-themes(customTheme.$light-theme);
-  @include mat.system-level-colors(customTheme.$light-theme);
-  // @include mat.menu-theme(themes.$my-app-light-theme);
-  // @include components.theme(customTheme.$light-theme);
-  @include gs.global-styles-theme(customTheme.$light-theme);
-  @include mat.system-level-colors(customTheme.$light-theme);
+  // Apply component-specific themes
+  @include components.theme(themes.$my-app-light-theme);
 }
 
 html,
@@ -36,5 +32,5 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-@include mat.core();
-@include mat.color-variants-backwards-compatibility(customTheme.$light-theme);
+// @include mat.core();
+// @include mat.color-variants-backwards-compatibility(customTheme.$light-theme);

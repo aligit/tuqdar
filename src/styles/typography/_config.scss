@@ -1,0 +1,12 @@
+// src/styles/typography/_config.scss
+
+$heading-font-family: "IRANSans", sans-serif;
+$regular-font-family: "IRANSans", sans-serif;
+
+$my-app-typography: (
+  plain-family: $regular-font-family,
+  brand-family: $heading-font-family,
+  bold-weight: 700,
+  medium-weight: 500,
+  regular-weight: 400,
+);

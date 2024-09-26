@@ -16,14 +16,14 @@ import { map, shareReplay } from 'rxjs/operators';
       <mat-sidenav
         dir="rtl"
         #drawer
-        class="sidenav"
+        class="sidenav header2-sidenav"
         fixedInViewport
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'"
         [opened]="(isHandset$ | async) === false"
       >
         <!-- //'over' | 'push' | 'side'; -->
-        <mat-toolbar>Menu</mat-toolbar>
+        <mat-toolbar class="header2-toolbar">Menu</mat-toolbar>
         <mat-nav-list>
           <a mat-list-item routerLink="/">Link 1</a>
           <a mat-list-item routerLink="/">Link 2</a>
@@ -31,7 +31,7 @@ import { map, shareReplay } from 'rxjs/operators';
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>
-        <mat-toolbar color="primary">
+        <mat-toolbar color="primary" class="header2-toolbar">
           @if (isHandset$ | async) {
             <button
               type="button"

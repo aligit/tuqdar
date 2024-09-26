@@ -1,0 +1,33 @@
+// header2-theme.scss
+
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin color($theme) {
+  // Apply primary background and on-primary text color to mat-toolbar
+  .header2-toolbar {
+    background: mat.get-theme-color($theme, primary);
+    color: mat.get-theme-color($theme, on-primary);
+  }
+
+  // Apply primary container background and on-primary-container text color to mat-sidenav
+  .header2-sidenav {
+    background: mat.get-theme-color($theme, primary-container);
+    color: mat.get-theme-color($theme, on-primary-container);
+  }
+}
+
+@mixin typography($theme) {
+  .header2-toolbar {
+    font: mat.get-theme-typography($theme, "body-large", "font");
+  }
+
+  .header2-sidenav a {
+    font: mat.get-theme-typography($theme, "body-medium", "font");
+  }
+}
+
+@mixin theme($theme) {
+  @include color($theme);
+  @include typography($theme);
+}
