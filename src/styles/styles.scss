@@ -1,24 +1,39 @@
 @use "@angular/material" as mat;
-@use "./m3-theme" as customTheme;
+@use "./themes/m3-theme" as customTheme;
 @use "./mixins/global-styles" as gs;
-@import "bootstrap/scss/bootstrap";
+// TODO: Remove webfonts if not used
+@use "./typography/webfonts.scss" as *;
+// TODO: Remove bootstrap if not used
+// @import "bootstrap/scss/bootstrap";
+@import "./typography/webfonts.scss";
 
-body {
+html {
+  // @include mat.core-theme(themes.$my-app-light-theme);
+  // @include mat.button-theme(themes.$my-app-light-theme);
+  // @include mat.icon-theme(themes.$my-app-light-theme);
+  // @include mat.menu-theme(themes.$my-app-light-theme);
+  // @include components.theme(themes.$my-app-light-theme);
+
   // @include mat.all-component-themes($theme);
   @include mat.core-theme(customTheme.$light-theme);
   @include mat.all-component-themes(customTheme.$light-theme);
   @include mat.system-level-colors(customTheme.$light-theme);
+  // @include mat.menu-theme(themes.$my-app-light-theme);
+  // @include components.theme(customTheme.$light-theme);
   @include gs.global-styles-theme(customTheme.$light-theme);
-  margin: 0;
-  height: 100%;
+  @include mat.system-level-colors(customTheme.$light-theme);
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
   height: 100%;
   width: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
 }
 
 @include mat.core();

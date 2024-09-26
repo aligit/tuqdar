@@ -1,5 +1,5 @@
 @use "../../../styles/mixins/header-theme" as header-theme;
-@use "../../../styles/m3-theme" as customTheme;
+@use "../../../styles/themes/m3-theme" as customTheme;
 @use "@angular/material" as mat;
 
 .custom-toolbar {

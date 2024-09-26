@@ -22,6 +22,7 @@ import { map, shareReplay } from 'rxjs/operators';
         [mode]="(isHandset$ | async) ? 'over' : 'side'"
         [opened]="(isHandset$ | async) === false"
       >
+        <!-- //'over' | 'push' | 'side'; -->
         <mat-toolbar>Menu</mat-toolbar>
         <mat-nav-list>
           <a mat-list-item routerLink="/">Link 1</a>
@@ -41,7 +42,13 @@ import { map, shareReplay } from 'rxjs/operators';
               <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
             </button>
           }
-          <span>my-app</span>
+          <!-- TODO: adapt the following svg for mobile. Probably gpt generated swans-mobile.svg out of swans.svg is wrong > -->
+          <img
+            src="/icons/swans-mobile.svg"
+            alt="املاک دو قو Logo"
+            class="logo"
+          />
+          <span>املاک دو قو</span>
         </mat-toolbar>
         <!-- Add Content Here -->
       </mat-sidenav-content>
@@ -57,6 +64,12 @@ import { map, shareReplay } from 'rxjs/operators';
         .mat-toolbar {
           background: inherit;
         }
+      }
+
+      .mat-toolbar.mat-primary {
+        position: sticky;
+        top: 0;
+        z-index: 1;
       }
     }
   `,
