@@ -12,64 +12,77 @@ import { map, shareReplay } from 'rxjs/operators';
 @Component({
   selector: 'app-header2',
   template: `
+    <mat-toolbar class="header2-toolbar">
+      @if (isHandset$ | async) {
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+        >
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      }
+      <img src="/icons/swans-mobile.svg" alt="املاک دو قو Logo" class="logo" />
+      <span class="logo-text">املاک دو قو</span>
+    </mat-toolbar>
+
     <mat-sidenav-container class="sidenav-container">
-      <mat-sidenav
-        dir="rtl"
-        #drawer
-        class="sidenav header2-sidenav"
-        fixedInViewport
-        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'"
-        [opened]="(isHandset$ | async) === false"
-      >
-        <!-- //'over' | 'push' | 'side'; -->
-        <mat-toolbar class="header2-toolbar">Menu</mat-toolbar>
-        <mat-nav-list>
-          <a mat-list-item routerLink="/">Link 1</a>
-          <a mat-list-item routerLink="/">Link 2</a>
-          <a mat-list-item routerLink="/">Link 3</a>
-        </mat-nav-list>
-      </mat-sidenav>
+      @if (isHandset$ | async) {
+        <mat-sidenav
+          #drawer
+          class="sidenav"
+          dir="rtl"
+          [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+          [mode]="(isHandset$ | async) ? 'over' : 'side'"
+          [opened]="(isHandset$ | async) === false"
+          [fixedInViewport]="true"
+          [fixedTopGap]="56"
+        >
+          <!-- Adjust this value to match your toolbar height -->
+          <mat-nav-list>
+            <a mat-list-item routerLink="/">Link 1</a>
+            <a mat-list-item routerLink="/">Link 2</a>
+            <a mat-list-item routerLink="/">Link 3</a>
+          </mat-nav-list>
+        </mat-sidenav>
+      }
       <mat-sidenav-content>
-        <mat-toolbar color="primary" class="header2-toolbar">
-          @if (isHandset$ | async) {
-            <button
-              type="button"
-              aria-label="Toggle sidenav"
-              mat-icon-button
-              (click)="drawer.toggle()"
-            >
-              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-            </button>
-          }
-          <!-- TODO: adapt the following svg for mobile. Probably gpt generated swans-mobile.svg out of swans.svg is wrong > -->
-          <img
-            src="/icons/swans-mobile.svg"
-            alt="املاک دو قو Logo"
-            class="logo"
-          />
-          <span>املاک دو قو</span>
-        </mat-toolbar>
         <!-- Add Content Here -->
       </mat-sidenav-content>
     </mat-sidenav-container>
   `,
   styles: `
-    .sidenav-container {
+    :host {
+      display: flex;
+      flex-direction: column;
       height: 100%;
+    }
 
+    .header2-toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+    }
+
+    .sidenav-container {
+      flex: 1;
+      //margin-top: 56px; /* Adjust this value to match your toolbar height */
+    }
+
+    .sidenav {
+      width: 200px;
+    }
+
+    .logo {
+      margin-left: 8px;
+    }
+
+    @media (max-width: 600px) {
       .sidenav {
-        width: 200px;
-
-        .mat-toolbar {
-          background: inherit;
-        }
-      }
-
-      .mat-toolbar.mat-primary {
-        position: sticky;
-        top: 0;
-        z-index: 1;
+        width: 100%;
       }
     }
   `,
