@@ -17,17 +17,17 @@
   }
 }
 
-@mixin typography($theme) {
-  .header2-toolbar {
-    font: mat.get-theme-typography($theme, "body-large", "font");
-  }
-
-  .header2-sidenav a {
-    font: mat.get-theme-typography($theme, "body-medium", "font");
-  }
-}
+// @mixin typography($theme) {
+//   .header2-toolbar {
+//     font: mat.get-theme-typography($theme, "body-large", "font");
+//   }
+//
+//   .header2-sidenav a {
+//     font: mat.get-theme-typography($theme, "body-medium", "font");
+//   }
+// }
 
 @mixin theme($theme) {
   @include color($theme);
-  @include typography($theme);
+  // @include typography($theme);
 }

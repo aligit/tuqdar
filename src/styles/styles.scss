@@ -2,7 +2,7 @@
 @use "./themes/all" as themes;
 @use "./typography/config";
 @use "./components";
-@use "./themes/m3-theme";
+@use "./themes/m3-theme" as customTheme;
 @use "./sizes";
 
 @include mat.core();
@@ -11,13 +11,13 @@
 
 html {
   // Apply the light theme by default
-  @include mat.core-theme(themes.$my-app-light-theme);
-  @include mat.button-theme(themes.$my-app-light-theme);
-  @include mat.icon-theme(themes.$my-app-light-theme);
-  @include mat.menu-theme(themes.$my-app-light-theme);
+  @include mat.core-theme(customTheme.$light-theme);
+  @include mat.button-theme(customTheme.$light-theme);
+  @include mat.icon-theme(customTheme.$light-theme);
+  @include mat.menu-theme(customTheme.$light-theme);
 
   // Apply component-specific themes
-  @include components.theme(themes.$my-app-light-theme);
+  @include components.theme(customTheme.$light-theme);
 }
 
 html,
