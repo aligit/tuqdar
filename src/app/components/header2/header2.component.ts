@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -8,6 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-header2',
@@ -18,7 +19,7 @@ import { map, shareReplay } from 'rxjs/operators';
           type="button"
           aria-label="Toggle sidenav"
           mat-icon-button
-          (click)="drawer.toggle()"
+          (click)="toggleDrawer()"
         >
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
@@ -26,31 +27,30 @@ import { map, shareReplay } from 'rxjs/operators';
       <img src="/icons/swans-mobile.svg" alt="املاک دو قو Logo" class="logo" />
       <span class="logo-text">املاک دو قو</span>
     </mat-toolbar>
-
+    @if (isHandset$ | async) {
     <mat-sidenav-container class="sidenav-container">
-      @if (isHandset$ | async) {
-        <mat-sidenav
-          #drawer
-          class="sidenav"
-          dir="rtl"
-          [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-          [mode]="(isHandset$ | async) ? 'over' : 'side'"
-          [opened]="(isHandset$ | async) === false"
-          [fixedInViewport]="true"
-          [fixedTopGap]="56"
-        >
-          <!-- Adjust this value to match your toolbar height -->
-          <mat-nav-list>
-            <a mat-list-item routerLink="/">Link 1</a>
-            <a mat-list-item routerLink="/">Link 2</a>
-            <a mat-list-item routerLink="/">Link 3</a>
-          </mat-nav-list>
-        </mat-sidenav>
-      }
+      <mat-sidenav
+        #drawer
+        class="sidenav"
+        dir="rtl"
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false"
+        [fixedInViewport]="true"
+        [fixedTopGap]="56"
+      >
+        <!-- Adjust this value to match your toolbar height -->
+        <mat-nav-list>
+          <a mat-list-item routerLink="/">Link 1</a>
+          <a mat-list-item routerLink="/">Link 2</a>
+          <a mat-list-item routerLink="/">Link 3</a>
+        </mat-nav-list>
+      </mat-sidenav>
       <mat-sidenav-content>
         <!-- Add Content Here -->
       </mat-sidenav-content>
     </mat-sidenav-container>
+    }
   `,
   styles: `
     :host {
@@ -97,6 +97,8 @@ import { map, shareReplay } from 'rxjs/operators';
   ],
 })
 export class Header2Component {
+  @ViewChild('drawer') drawer!: MatSidenav;
+
   private breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver
@@ -105,4 +107,8 @@ export class Header2Component {
       map((result) => result.matches),
       shareReplay(),
     );
+
+  toggleDrawer() {
+    this.drawer?.toggle();
+  }
 }
