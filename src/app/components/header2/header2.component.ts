@@ -21,7 +21,7 @@ import { MatSidenav } from '@angular/material/sidenav';
           mat-icon-button
           (click)="toggleDrawer()"
         >
-          <mat-icon aria-label="Side nav toggle icon">منو</mat-icon>
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
       }
 
