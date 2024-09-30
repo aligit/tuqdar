@@ -21,7 +21,7 @@ import { MatSidenav } from '@angular/material/sidenav';
           mat-icon-button
           (click)="toggleDrawer()"
         >
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          <mat-icon aria-label="Side nav toggle icon">منو</mat-icon>
         </button>
       }
 
@@ -31,46 +31,50 @@ import { MatSidenav } from '@angular/material/sidenav';
             src="/icons/swans.svg"
             alt="املاک دو قو Logo"
             class="logo"
-            width="60"
-            height="60"
+            width="48"
+            height="48"
           />
-          <span class="app-name">املاک دو قو</span>
+          <span class="logo-text">املاک دو قو</span>
         </a>
       </div>
       <span class="spacer"></span>
-      <div class="menu-container">
-        <a mat-button routerLink="/property/toghdar" class="menu-item">املاک</a>
-        <a mat-button routerLink="/about" class="menu-item">درباره ما</a>
-        <a mat-button routerLink="/contact" class="menu-item">اطلاعات تماس</a>
-      </div>
-      <button mat-raised-button color="accent" class="cta-button">
-        درخواست بازدید
-      </button>
+      @if (!(isHandset$ | async)) {
+        <div class="menu-container">
+          <a mat-button routerLink="/property/toghdar" class="menu-item"
+            >املاک</a
+          >
+          <a mat-button routerLink="/about" class="menu-item">درباره ما</a>
+          <a mat-button routerLink="/contact" class="menu-item">اطلاعات تماس</a>
+        </div>
+        <button mat-raised-button color="accent" class="cta-button">
+          درخواست بازدید
+        </button>
+      }
     </mat-toolbar>
-    @if (isHandset$ | async) {
-      <mat-sidenav-container class="sidenav-container">
+
+    <mat-sidenav-container class="sidenav-container">
+      @if (isHandset$ | async) {
         <mat-sidenav
           #drawer
           class="sidenav"
           dir="rtl"
-          [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-          [mode]="(isHandset$ | async) ? 'over' : 'side'"
-          [opened]="(isHandset$ | async) === false"
+          [attr.role]="'dialog'"
+          [mode]="'over'"
           [fixedInViewport]="true"
           [fixedTopGap]="56"
         >
-          <!-- Adjust this value to match your toolbar height -->
           <mat-nav-list>
             <a mat-list-item routerLink="/property/toghdar">املاک</a>
             <a mat-list-item routerLink="/about">درباره ما</a>
             <a mat-list-item routerLink="/contact">اطلاعات تماس</a>
+            <a mat-list-item class="cta-button-mobile">درخواست بازدید</a>
           </mat-nav-list>
         </mat-sidenav>
-        <mat-sidenav-content>
-          <!-- Add Content Here -->
-        </mat-sidenav-content>
-      </mat-sidenav-container>
-    }
+      }
+      <mat-sidenav-content>
+        <!-- Add Content Here -->
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   `,
   styles: `
     :host {
@@ -85,42 +89,30 @@ import { MatSidenav } from '@angular/material/sidenav';
       left: 0;
       right: 0;
       z-index: 2;
-    }
-
-    .sidenav-container {
-      flex: 1;
-      //margin-top: 56px; /* Adjust this value to match your toolbar height */
-    }
-
-    .sidenav {
-      width: 200px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
     }
 
     .logo-container {
       display: flex;
-      flex-direction: column;
       align-items: center;
 
       a {
         display: flex;
-        flex-direction: column;
         align-items: center;
         text-decoration: none;
         color: inherit;
-        text-align: center; // Center the text
       }
 
       .logo {
-        width: 60px;
-        height: 60px;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        margin-right: 8px;
       }
 
-      .app-name {
-        color: #fff; // White text color for menu
-        font-size: 1rem;
-        font-weight: 700;
-        line-height: 1.2;
+      .logo-text {
+        font-size: 1.2rem;
+        font-weight: 500;
       }
     }
 
@@ -128,9 +120,48 @@ import { MatSidenav } from '@angular/material/sidenav';
       flex: 1 1 auto;
     }
 
+    .menu-container {
+      display: flex;
+      align-items: center;
+
+      .menu-item {
+        margin: 0 8px;
+      }
+    }
+
+    .cta-button {
+      margin-left: 16px;
+    }
+
+    .sidenav-container {
+      position: absolute;
+      top: 64px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: transparent;
+    }
+
+    .sidenav {
+      width: 250px;
+      z-index: 3;
+    }
+
     @media (max-width: 600px) {
+      .header2-toolbar {
+        height: 56px;
+      }
+
+      .sidenav-container {
+        top: 56px;
+      }
+
       .sidenav {
         width: 100%;
+      }
+
+      .logo-container .logo-text {
+        display: none;
       }
     }
   `,

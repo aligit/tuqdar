@@ -15,6 +15,7 @@ html {
   @include mat.button-theme(customTheme.$light-theme);
   @include mat.icon-theme(customTheme.$light-theme);
   @include mat.menu-theme(customTheme.$light-theme);
+  @include mat.sidenav-theme(customTheme.$light-theme);
 
   // Apply component-specific themes
   @include components.theme(customTheme.$light-theme);
