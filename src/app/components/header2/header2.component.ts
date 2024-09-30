@@ -24,32 +24,52 @@ import { MatSidenav } from '@angular/material/sidenav';
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
       }
-      <img src="/icons/swans-mobile.svg" alt="املاک دو قو Logo" class="logo" />
-      <span class="logo-text">املاک دو قو</span>
+
+      <div class="logo-container">
+        <a routerLink="/">
+          <img
+            src="/icons/swans.svg"
+            alt="املاک دو قو Logo"
+            class="logo"
+            width="60"
+            height="60"
+          />
+          <span class="app-name">املاک دو قو</span>
+        </a>
+      </div>
+      <span class="spacer"></span>
+      <div class="menu-container">
+        <a mat-button routerLink="/property/toghdar" class="menu-item">املاک</a>
+        <a mat-button routerLink="/about" class="menu-item">درباره ما</a>
+        <a mat-button routerLink="/contact" class="menu-item">اطلاعات تماس</a>
+      </div>
+      <button mat-raised-button color="accent" class="cta-button">
+        درخواست بازدید
+      </button>
     </mat-toolbar>
     @if (isHandset$ | async) {
-    <mat-sidenav-container class="sidenav-container">
-      <mat-sidenav
-        #drawer
-        class="sidenav"
-        dir="rtl"
-        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'"
-        [opened]="(isHandset$ | async) === false"
-        [fixedInViewport]="true"
-        [fixedTopGap]="56"
-      >
-        <!-- Adjust this value to match your toolbar height -->
-        <mat-nav-list>
-          <a mat-list-item routerLink="/">Link 1</a>
-          <a mat-list-item routerLink="/">Link 2</a>
-          <a mat-list-item routerLink="/">Link 3</a>
-        </mat-nav-list>
-      </mat-sidenav>
-      <mat-sidenav-content>
-        <!-- Add Content Here -->
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+      <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav
+          #drawer
+          class="sidenav"
+          dir="rtl"
+          [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+          [mode]="(isHandset$ | async) ? 'over' : 'side'"
+          [opened]="(isHandset$ | async) === false"
+          [fixedInViewport]="true"
+          [fixedTopGap]="56"
+        >
+          <!-- Adjust this value to match your toolbar height -->
+          <mat-nav-list>
+            <a mat-list-item routerLink="/property/toghdar">املاک</a>
+            <a mat-list-item routerLink="/about">درباره ما</a>
+            <a mat-list-item routerLink="/contact">اطلاعات تماس</a>
+          </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+          <!-- Add Content Here -->
+        </mat-sidenav-content>
+      </mat-sidenav-container>
     }
   `,
   styles: `
@@ -76,8 +96,36 @@ import { MatSidenav } from '@angular/material/sidenav';
       width: 200px;
     }
 
-    .logo {
-      margin-left: 8px;
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        text-align: center; // Center the text
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .app-name {
+        color: #fff; // White text color for menu
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+    }
+
+    .spacer {
+      flex: 1 1 auto;
     }
 
     @media (max-width: 600px) {
