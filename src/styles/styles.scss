@@ -1,24 +1,21 @@
 @use "@angular/material" as mat;
-@use "./themes/all" as themes;
-@use "./typography/config";
+@use "./themes/m3-theme-farsi.scss" as themes;
 @use "./components";
-@use "./themes/m3-theme" as customTheme;
 @use "./sizes";
 
 @include mat.core();
 // @import "bootstrap/scss/bootstrap";
-// @import "./typography/webfonts.scss";
 
 html {
   // Apply the light theme by default
-  @include mat.core-theme(customTheme.$light-theme);
-  @include mat.button-theme(customTheme.$light-theme);
-  @include mat.icon-theme(customTheme.$light-theme);
-  @include mat.menu-theme(customTheme.$light-theme);
-  @include mat.sidenav-theme(customTheme.$light-theme);
+  @include mat.core-theme(themes.$light-theme);
+  @include mat.button-theme(themes.$light-theme);
+  @include mat.icon-theme(themes.$light-theme);
+  @include mat.menu-theme(themes.$light-theme);
+  @include mat.sidenav-theme(themes.$light-theme);
 
   // Apply component-specific themes
-  @include components.theme(customTheme.$light-theme);
+  @include components.theme(themes.$light-theme);
 }
 
 html,

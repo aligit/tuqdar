@@ -11,3 +11,13 @@
   font-weight: 700;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "IRANSans";
+  src:
+    url("/fonts/farsi/IRANSansXV.woff2") format("woff2"),
+    url("/fonts/farsi/IRANSansXV.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

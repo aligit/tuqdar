@@ -1,12 +1,34 @@
-// src/styles/typography/_config.scss
+@use "@angular/material" as mat;
 
 $heading-font-family: "IRANSans", sans-serif;
 $regular-font-family: "IRANSans", sans-serif;
 
-$my-app-typography: (
+$farsi-typography: (
   plain-family: $regular-font-family,
   brand-family: $heading-font-family,
   bold-weight: 700,
   medium-weight: 500,
   regular-weight: 400,
 );
+
+// $latin-typography: (
+//   brand-family: "Roboto",
+//   "Noto Naskh Arabic",
+//   "Noto Sans Persian",
+//   sans-serif,
+//   plain-family: "Roboto",
+//   "Noto Naskh Arabic",
+//   "Noto Sans Persian",
+//   sans-serif,
+//   font-size: 16px,
+//   line-height: 1.5,
+//   bold-weight: 700,
+//   medium-weight: 500,
+//   regular-weight: 400,
+//   h1-font-size: 2.5em,
+//   h2-font-size: 2em,
+//   h3-font-size: 1.75em,
+//   h4-font-size: 1.5em,
+//   h5-font-size: 1.25em,
+//   h6-font-size: 1em,
+// );
