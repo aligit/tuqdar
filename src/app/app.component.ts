@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header2Component } from './components/header2/header2.component';
+import { IconSvgService } from './services/icon-svg.service';
 
 @Component({
   selector: 'app-root',
@@ -33,4 +34,11 @@ import { Header2Component } from './components/header2/header2.component';
     `,
   ],
 })
-export class AppComponent {}
+export class AppComponent {
+  private iconSvgService = inject(IconSvgService);
+  constructor() {
+    this.iconSvgService.registerIcons([
+      { name: 'custom_menu', path: '/icons/material/menu_open_24.svg' },
+    ]);
+  }
+}

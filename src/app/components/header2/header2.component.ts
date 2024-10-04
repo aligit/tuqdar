@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { MatSidenav } from '@angular/material/sidenav';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'app-header2',
@@ -21,7 +22,7 @@ import { MatSidenav } from '@angular/material/sidenav';
           mat-icon-button
           (click)="toggleDrawer()"
         >
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          <app-icon name="custom_menu"></app-icon>
         </button>
       }
 
@@ -173,6 +174,7 @@ import { MatSidenav } from '@angular/material/sidenav';
     MatListModule,
     MatIconModule,
     AsyncPipe,
+    IconComponent,
   ],
 })
 export class Header2Component {
