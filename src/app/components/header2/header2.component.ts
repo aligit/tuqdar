@@ -22,7 +22,7 @@ import { IconComponent } from '../icon/icon.component';
           mat-icon-button
           (click)="toggleDrawer()"
         >
-          <app-icon name="custom_menu"></app-icon>
+          <app-icon name="menu_open"></app-icon>
         </button>
       }
 

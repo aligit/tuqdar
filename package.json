@@ -11,7 +11,8 @@
     "start": "npm run dev",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generate-sprite": "node scripts/generate-sprite.js"
   },
   "private": true,
   "dependencies": {
@@ -19,10 +20,13 @@
     "@analogjs/router": "^1.8.0",
     "@angular/animations": "^18.0.0",
     "@angular/build": "^18.0.0",
+    "@angular/cdk": "^18.2.1",
     "@angular/common": "^18.0.0",
     "@angular/compiler": "^18.0.0",
     "@angular/core": "^18.0.0",
     "@angular/forms": "^18.0.0",
+    "@angular/language-service": "^18.2.3",
+    "@angular/material": "^18.2.1",
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/platform-server": "^18.0.0",
@@ -30,6 +34,7 @@
     "@nx/angular": "^19.7.2",
     "@nx/devkit": "^19.7.2",
     "@nx/vite": "^19.7.2",
+    "bootstrap": "^5.3.3",
     "front-matter": "^4.0.2",
     "marked": "^7.0.0",
     "marked-gfm-heading-id": "^3.1.0",
@@ -37,13 +42,10 @@
     "marked-mangle": "^1.1.7",
     "prismjs": "^1.29.0",
     "rxjs": "~7.8.0",
+    "shiki": "^1.6.1",
+    "svg-sprite": "^2.0.4",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.3",
-    "@angular/cdk": "^18.2.1",
-    "@angular/language-service": "^18.2.3",
-    "@angular/material": "^18.2.1",
-    "bootstrap": "^5.3.3",
-    "shiki": "^1.6.1"
+    "zone.js": "~0.14.3"
   },
   "devDependencies": {
     "@analogjs/platform": "^1.8.0",

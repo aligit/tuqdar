@@ -6,7 +6,7 @@ import { Component, signal } from '@angular/core';
   template: `
     <div>
       <a href="https://analogjs.org/" target="_blank">
-        <img alt="Analog Logo" class="logo analog" src="/analog.svg" />
+        <img alt="Analog Logo" class="logo analog" src="/icons/analog.svg" />
       </a>
     </div>
 

@@ -37,8 +37,6 @@ import { IconSvgService } from './services/icon-svg.service';
 export class AppComponent {
   private iconSvgService = inject(IconSvgService);
   constructor() {
-    this.iconSvgService.registerIcons([
-      { name: 'custom_menu', path: '/icons/material/menu_open_24.svg' },
-    ]);
+    this.iconSvgService.registerSprite();
   }
 }

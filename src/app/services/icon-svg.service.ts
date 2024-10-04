@@ -10,14 +10,9 @@ export class IconSvgService {
   private domSanitizer = inject(DomSanitizer);
 
   constructor() {}
-  registerIcon(iconName: string, iconPath: string): void {
-    this.matIconRegistry.addSvgIcon(
-      iconName,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(iconPath),
+  registerSprite(): void {
+    this.matIconRegistry.addSvgIconSet(
+      this.domSanitizer.bypassSecurityTrustResourceUrl('/sprite.symbol.svg'),
     );
-  }
-
-  registerIcons(icons: { name: string; path: string }[]): void {
-    icons.forEach((icon) => this.registerIcon(icon.name, icon.path));
   }
 }

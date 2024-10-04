@@ -12,20 +12,20 @@
 
 1. Font Management:
 
-   - [] Download Iran Sans font files (300, 400, 700 weights) in WOFF2 format
-   - [ ] Create a `src/assets/fonts` directory and place the font files there
-   - [ ] Update the font-face declarations in your styles to use local files
+   - [x] Download Iran Sans font files (300, 400, 700 weights) in WOFF2 format
+   - [x] Create a `src/assets/fonts` directory and place the font files there
+   - [x] Update the font-face declarations in your styles to use local files
 
 2. Icon Management:
 
-   - [ ] Download or create SVG icons for your project
-   - [ ] Place SVG icons in `src/assets/icons` directory
-   - [ ] Create an SVG sprite using a tool like svg-sprite
-   - [ ] Implement an icon component for easy usage of SVG icons
+   - [x] Download or create SVG icons for your project
+   - [x] Place SVG icons in `src/assets/icons` directory
+   - [x] Create an SVG sprite using a tool like svg-sprite
+   - [x] Implement an icon component for easy usage of SVG icons
 
 3. Optimize Assets:
 
-   - [ ] Use fonttools to subset Iran Sans font, including only necessary characters
+   - [x] Use fonttools to subset Iran Sans font, including only necessary characters
    - [ ] Optimize SVG icons using SVGO
 
 4. Update index.html:
