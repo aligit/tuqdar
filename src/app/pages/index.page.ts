@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -20,15 +20,17 @@ import { Component, signal } from '@angular/core';
     <section class="property-listings">
       <h2>Featured Properties</h2>
       <div class="properties-grid">
-        <div class="property-card" *ngFor="let property of properties">
-          <img
-            [src]="property.image"
-            alt="{{ property.title }}"
-            class="property-image"
-          />
-          <h3>{{ property.title }}</h3>
-          <p>{{ property.description }}</p>
-        </div>
+        @for (property of properties; track property; let i = $index) {
+          <div class="property-card">
+            <img
+              [src]="property.image"
+              alt="{{ property.title }}"
+              class="property-image"
+            />
+            <h3>{{ property.title }}</h3>
+            <p>{{ property.description }}</p>
+          </div>
+        }
       </div>
     </section>
   `,
@@ -37,7 +39,8 @@ import { Component, signal } from '@angular/core';
       position: relative;
       width: 100%;
       height: 400px;
-      margin-top: 80px; /* Adjust based on header height */
+      padding-top: 64px; /* Adjust this value to match your header height */
+      margin-top: 0; /* Remove the margin */
 
       .banner-image {
         width: 100%;
@@ -147,24 +150,25 @@ import { Component, signal } from '@angular/core';
   `,
 })
 export default class HomeComponent {
+  //Make sure to replace images with better alternatives
   properties = [
     {
-      image: 'assets/images/property1.jpg',
+      image: 'public/images/1.jpeg',
       title: 'Luxury Villa',
       description: 'A beautiful villa with sea view.',
     },
     {
-      image: 'assets/images/property2.jpg',
+      image: 'public/images/2.jpeg',
       title: 'Modern Apartment',
       description: 'A spacious apartment in the city center.',
     },
     {
-      image: 'assets/images/property3.jpg',
+      image: 'public/images/3.jpg',
       title: 'Country House',
       description: 'A cozy house in the countryside.',
     },
     {
-      image: 'assets/images/property4.jpg',
+      image: 'public/images/4.jpg',
       title: 'Penthouse Suite',
       description: 'An exclusive penthouse with all amenities.',
     },
