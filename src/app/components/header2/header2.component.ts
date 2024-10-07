@@ -114,6 +114,7 @@ import { IconComponent } from '../icon/icon.component';
       .logo-text {
         font-size: 1.2rem;
         font-weight: 500;
+        white-space: nowrap;
       }
     }
 
@@ -159,10 +160,6 @@ import { IconComponent } from '../icon/icon.component';
 
       .sidenav {
         width: 100%;
-      }
-
-      .logo-container .logo-text {
-        display: none;
       }
     }
   `,
