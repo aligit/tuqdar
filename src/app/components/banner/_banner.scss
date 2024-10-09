@@ -1,0 +1,28 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin color($theme) {
+  .banner {
+    .banner-content {
+      background-color: rgba(mat.get-theme-color($theme, surface), 0.7);
+      color: mat.get-theme-color($theme, on-surface);
+    }
+
+    h1 {
+      color: mat.get-theme-color($theme, primary);
+    }
+  }
+}
+
+@mixin typography($theme) {
+  .banner {
+    .banner-content h1 {
+      font: mat.get-theme-typography($theme, "headline-4");
+    }
+  }
+}
+
+@mixin theme($theme) {
+  @include color($theme);
+  @include typography($theme);
+}
