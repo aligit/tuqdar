@@ -67,7 +67,13 @@
    - [ ] Consider using Git LFS for large font files if necessary
 
 10. Build Process:
+
     - [ ] Verify that your build process correctly copies fonts and icons to the dist folder
     - [ ] Implement hash-based filenames for cache busting if not already handled by AnalogJS
+
+11. Home Page:
+    - [ ] Ask which villa to show in the featured home page and provide pictures and ask for title and description
+    - [ ] Create small sub-paragraphs with graphics and text to better describe the mentality of twin houses and the architecture(ask ghazal and update accordingly)
+    - [ ] Update the sub-paragraphs with financing options
 
 This todo list focuses on the specific areas you mentioned, particularly around font and icon management, AnalogJS improvements, and Vercel deployment. It should help you prepare your website for launch, even without property listings at this stage.
