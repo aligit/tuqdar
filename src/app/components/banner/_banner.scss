@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "@angular/material" as mat;
 
 @mixin color($theme) {
@@ -17,7 +16,8 @@
 @mixin typography($theme) {
   .banner {
     .banner-content h1 {
-      font: mat.get-theme-typography($theme, "headline-4");
+      font: var(--mat-display-small-font);
+      letter-spacing: var(--mat-display-small-letter-spacing);
     }
   }
 }

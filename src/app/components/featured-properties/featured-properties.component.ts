@@ -22,88 +22,88 @@ type Property = {
               [alt]="property.title"
               class="property-image"
             />
+            <div class="property-info">
+
             <h3>{{ property.title }}</h3>
             <p>{{ property.description }}</p>
+        </div>
           </div>
         }
       </div>
       <div class="more-properties-button">
-        <button mat-raised-button color="primary">مشاهده تمام ویلاها</button>
+        <button mat-raised-button color="accent">مشاهده تمام ویلاها</button>
       </div>
     </section>
   `,
   styles: `
-   .property-listings {
-    padding: 2rem;
+.property-listings {
+  padding: 2rem;
 
-    h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-      }
+  h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 2.5rem;
+  }
 
-      .properties-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
-        justify-items: center;
-        margin-bottom: 2rem;
-      }
-
-      .property-card {
-        border-radius: 8px;
-        overflow: hidden;
-        width: 100%;
-        max-width: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        transition: transform 0.3s;
-
-        &:hover {
-          transform: translateY(-5px);
-        }
-
-        .property-image {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-        }
-
-        h3 {
-          margin: 1rem 0 0.5rem 0;
-          font-size: 1.25rem;
-        }
-
-        p {
-          padding: 0 1rem 1rem 1rem;
-          font-size: 1rem;
-        }
-      }
-      .more-properties-button {
-        display: flex;
-        justify-content: center;
-      } 
-    }
+  .properties-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
 
     @media (max-width: 1200px) {
-      .properties-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (max-width: 992px) {
-      .properties-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     @media (max-width: 600px) {
-      .properties-grid {
-        grid-template-columns: 1fr;
-      }
+      grid-template-columns: 1fr;
     }
+  }
+
+  .property-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .property-info {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  }
+
+  .more-properties-button {
+    text-align: center;
+    margin-top: 2rem;
+  }
+}
 `
 })
 export class FeaturedPropertiesComponent {

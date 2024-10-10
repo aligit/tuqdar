@@ -1,4 +1,4 @@
-@use "@angular/material" as mat;
+@use '@angular/material' as mat;
 
 @mixin color($theme) {
   .property-listings {
@@ -6,17 +6,15 @@
 
     h2 {
       color: mat.get-theme-color($theme, primary);
-      border-bottom: 2px solid mat.get-theme-color($theme, primary);
-    }
-
-    .properties-grid {
-      background-color: mat.get-theme-color($theme, surface-container-low);
     }
 
     .property-card {
       background-color: mat.get-theme-color($theme, surface-container);
-      box-shadow: 0 2px 8px rgba(mat.get-theme-color($theme, shadow), 0.08);
-      border: 1px solid mat.get-theme-color($theme, outline-variant);
+      box-shadow: 0 4px 6px rgba(mat.get-theme-color($theme, shadow), 0.1);
+
+      &:hover {
+        box-shadow: 0 6px 12px rgba(mat.get-theme-color($theme, shadow), 0.15);
+      }
 
       h3 {
         color: mat.get-theme-color($theme, on-surface);
@@ -25,11 +23,6 @@
       p {
         color: mat.get-theme-color($theme, on-surface-variant);
       }
-
-      &:hover {
-        background-color: mat.get-theme-color($theme, surface-container-high);
-        border-color: mat.get-theme-color($theme, primary);
-      }
     }
   }
 }
@@ -37,36 +30,25 @@
 @mixin typography($theme) {
   .property-listings {
     h2 {
-      font: mat.get-theme-typography($theme, headline-small, font);
-      letter-spacing: mat.get-theme-typography($theme, headline-small, letter-spacing);
+      font: var(--mat-headline-medium-font);
+      letter-spacing: var(--mat-headline-medium-letter-spacing);
     }
 
     .property-card {
       h3 {
-        font: mat.get-theme-typography($theme, title-medium, font);
-        letter-spacing: mat.get-theme-typography($theme, title-medium, letter-spacing);
+        font: var(--mat-title-medium-font);
+        letter-spacing: var(--mat-title-medium-letter-spacing);
       }
 
       p {
-        font: mat.get-theme-typography($theme, body-medium, font);
-        letter-spacing: mat.get-theme-typography($theme, body-medium, letter-spacing);
-      }
-    }
-
-    .more-properties-button {
-      button {
-        font: mat.get-theme-typography($theme, label-large, font);
-        letter-spacing: mat.get-theme-typography($theme, label-large, letter-spacing);
+        font: var(--mat-body-medium-font);
+        letter-spacing: var(--mat-body-medium-letter-spacing);
       }
     }
   }
 }
 
 @mixin theme($theme) {
-  @if mat.theme-has($theme, color) {
-    @include color($theme);
-  }
-  @if mat.theme-has($theme, typography) {
-    @include typography($theme);
-  }
+  @include color($theme);
+  @include typography($theme);
 }

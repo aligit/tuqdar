@@ -13,43 +13,42 @@ import { Component, Input } from '@angular/core';
     </section>
   `,
   styles: `
-    .banner {
-      position: relative;
-      width: 100%;
-      height: 400px;
-      padding-top: 64px;
-      margin-top: 0;
+.banner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  padding-top: 64px;
+  margin-top: 0;
 
-      .banner-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-      .banner-content {
-        position: absolute;
-        bottom: 10%;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        padding: 1rem;
-        border-radius: 8px;
+  .banner-content {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
 
-        h1 {
-          margin: 0;
-        }
-      }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
     }
+  }
 
-    @media (max-width: 600px) {
-      .banner {
-        height: 250px;
+  @media (max-width: 600px) {
+    height: 250px;
 
-        .banner-content h1 {
-          font-size: 2rem;
-        }
-      }
+    .banner-content h1 {
+      font-size: 2rem;
     }
+  }
+}
 `
 })
 export class BannerComponent {

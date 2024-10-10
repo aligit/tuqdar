@@ -1,10 +1,13 @@
 // src/styles/components/_index.scss
 
 // @use "../../app/ui/header2/header2-theme" as header2;
+// TODO: make sure all mixin components are imported
 @use "../../app/components/header2/header2-theme" as header2;
+@use "../../app/components/banner/banner" as banner;
 @use "../../app/components/featured-properties/featured-properties" as featured-properties;
 
 @mixin theme($theme) {
   @include header2.theme($theme);
   @include featured-properties.theme($theme);
+  @include banner.theme($theme);
 }
