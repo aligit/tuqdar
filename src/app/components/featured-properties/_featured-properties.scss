@@ -1,0 +1,46 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin color($theme) {
+  .property-listings {
+    h2 {
+      color: mat.get-theme-color($theme, primary);
+    }
+
+    .property-card {
+      background-color: mat.get-theme-color($theme, surface);
+      box-shadow: 0 2px 8px rgba(mat.get-theme-color($theme, on-surface), 0.1);
+
+      h3 {
+        color: mat.get-theme-color($theme, on-surface);
+      }
+
+      p {
+        color: mat.get-theme-color($theme, on-surface-variant);
+      }
+    }
+  }
+}
+
+@mixin typography($theme) {
+  .property-listings {
+    h2 {
+      font: mat.get-theme-typography($theme, "headline-5");
+    }
+
+    .property-card {
+      h3 {
+        font: mat.get-theme-typography($theme, "subtitle-1");
+      }
+
+      p {
+        font: mat.get-theme-typography($theme, "body-2");
+      }
+    }
+  }
+}
+
+@mixin theme($theme) {
+  @include color($theme);
+  @include typography($theme);
+}
