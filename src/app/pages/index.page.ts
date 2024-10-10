@@ -9,12 +9,12 @@ import { BannerComponent } from '../components/banner/banner.component';
     <app-banner
       imageSrc="/images/index-banner.jpeg"
       imageAlt="Toghdar Banner"
-      title="Find Your Dream Property"
+      title="ویلاهای ساحلی فرح آباد"
     ></app-banner>
 
     <!-- Property Listings Section -->
     <section class="property-listings">
-      <h2>Featured Properties</h2>
+      <h2>ویلاهای ویژه</h2>
       <div class="properties-grid">
         @for (property of properties; track property; let i = $index) {
           <div class="property-card">
@@ -120,24 +120,24 @@ export default class HomeComponent {
   //Make sure to replace images with better alternatives
   properties = [
     {
-      image: '/images/1.jpeg',
-      title: 'Luxury Villa',
-      description: 'A beautiful villa with sea view.',
-    },
-    {
-      image: '/images/2.jpeg',
-      title: 'Modern Apartment',
-      description: 'A spacious apartment in the city center.',
-    },
-    {
       image: '/images/3.jpg',
-      title: 'Country House',
-      description: 'A cozy house in the countryside.',
+      title: 'ویلا دوبلکس مدرن(  شمالی )',
+      description: '۵۰۰ متر تا دریا، سکوت و آرامش',
     },
     {
-      image: '/images/4.jpg',
-      title: 'Penthouse Suite',
-      description: 'An exclusive penthouse with all amenities.',
+      image: '/images/1.jpeg',
+      title: 'ویلا دوبلکس مدرن( جنوبی )',
+      description: '۳ اتاق خواب، استخر و پارکینگ',
+    },
+    {
+      image: '/images/pamchal/3.JPEG',
+      title: 'فلت مدرن  ۱۶۰ متری',
+      description: 'دنج و با صفا و آرام ده دقیقه تا ساحل، فرنیش کامل',
+    },
+    {
+      image: '/images/shirinbol/4.jpg',
+      title: 'ویلا باغ لوکس',
+      description: 'شیک، دنج، سرسبز، خلوت و آرام',
     },
   ];
 }
