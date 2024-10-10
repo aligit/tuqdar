@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 
 type Property = {
   image: string;
@@ -9,7 +10,7 @@ type Property = {
 @Component({
   selector: 'app-featured-properties',
   standalone: true,
-  imports: [],
+  imports: [MatButtonModule],
   template: `
     <section class="property-listings">
       <h2>{{ title }}</h2>
@@ -25,6 +26,9 @@ type Property = {
             <p>{{ property.description }}</p>
           </div>
         }
+      </div>
+      <div class="more-properties-button">
+        <button mat-flat-button color="primary">مشاهده تمام ویلاها</button>
       </div>
     </section>
   `,
@@ -42,6 +46,7 @@ type Property = {
         grid-template-columns: repeat(4, 1fr);
         gap: 1.5rem;
         justify-items: center;
+        margin-bottom: 2rem;
       }
 
       .property-card {
@@ -75,6 +80,10 @@ type Property = {
           font-size: 1rem;
         }
       }
+      .more-properties-button {
+        display: flex;
+        justify-content: center;
+      } 
     }
 
     @media (max-width: 1200px) {
@@ -97,6 +106,6 @@ type Property = {
 `
 })
 export class FeaturedPropertiesComponent {
-  @Input() title: string = 'Featured Properties';
+  @Input() title: string = 'ویلاهای پرطرفدار';
   @Input() properties: Property[] = [];
 }
