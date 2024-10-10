@@ -26,15 +26,23 @@
   .property-listings {
     h2 {
       font: mat.get-theme-typography($theme, "headline-5");
+      font-weight: bold;
     }
 
     .property-card {
       h3 {
         font: mat.get-theme-typography($theme, "subtitle-1");
+        font-weight: bold;
       }
 
       p {
         font: mat.get-theme-typography($theme, "body-2");
+      }
+    }
+
+    .more-properties-button-container {
+      button {
+        font: mat.get-theme-typography($theme, "button");
       }
     }
   }
