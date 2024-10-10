@@ -28,17 +28,18 @@ type Property = {
         }
       </div>
       <div class="more-properties-button">
-        <button mat-flat-button color="primary">مشاهده تمام ویلاها</button>
+        <button mat-raised-button color="primary">مشاهده تمام ویلاها</button>
       </div>
     </section>
   `,
   styles: `
    .property-listings {
-      padding: 2rem;
+    padding: 2rem;
 
-      h2 {
-        text-align: center;
-        margin-bottom: 1.5rem;
+    h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
       }
 
       .properties-grid {
