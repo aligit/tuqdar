@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { BannerComponent } from '../components/banner/banner.component';
+import { RouterOutlet, RouterLink } from '@angular/router'
 import { FeaturedPropertiesComponent } from '../components/featured-properties/featured-properties.component';
 
 @Component({
   selector: 'app-home',
-  imports: [BannerComponent, FeaturedPropertiesComponent],
+  imports: [BannerComponent, FeaturedPropertiesComponent, RouterOutlet, RouterLink],
   standalone: true,
   template: `
     <app-banner
@@ -17,6 +18,11 @@ import { FeaturedPropertiesComponent } from '../components/featured-properties/f
       [title]="'ویلاهای ویژه'"
       [properties]="properties"
     ></app-featured-properties>
+    <hr/>
+  <h1>Magic!</h1>
+  <p><a routerLink="/magic/test">test</a><a routerLink="/magic/other">other</a></p>
+  <router-outlet></router-outlet>
+
   `,
   styles: `
     :host {

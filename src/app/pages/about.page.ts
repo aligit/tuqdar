@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { provideRouter } from '@angular/router';
+import { RouterLink, RouterOutlet, provideRouter } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient } from '@angular/common/http';
 
@@ -12,7 +12,7 @@ providers: [
 
 @Component({
   standalone: true,
-  imports: [CommonModule, MatCardModule],
+  imports: [CommonModule, MatCardModule, RouterOutlet, RouterLink],
   template: `
     <div class="about-container">
       <mat-card>
@@ -24,9 +24,19 @@ providers: [
           <p>Our mission is to help you find your dream property with ease and confidence.</p>
         </mat-card-content>
       </mat-card>
+  <h1>Magic!</h1>
+  <p><a routerLink="/magic/test">test</a>
+        </p>
+<p>
+        <a routerLink="/magic/other">other</a></p>
+  <router-outlet></router-outlet>
     </div>
   `,
   styles: `
+
+    :host {
+      display: block;
+    }
     .about-container {
       max-width: 800px;
       margin: 2rem auto;
