@@ -1,0 +1,10 @@
+<script lang="ts">
+import {RouterOutlet,RouterLink} from '@angular/router' with {analog: 'imports'};
+</script>
+
+<template>
+
+    <h2>Properties from properties.page.analog</h2>
+
+    <router-outlet></router-outlet>
+</template>
