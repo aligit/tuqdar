@@ -8,8 +8,7 @@ import { Meta, Title } from '@angular/platform-browser';
   standalone: true,
   template: `
    <h2>Properties List</h2>
-   <a routerLink="/properties/2022-12-27-suck-my-dick">Other</a>
-    <!-- <ul>
+    <ul>
       @for (property of properties; track property.attributes.propertyId) {
         <li>
           <a [routerLink]="['/properties', property.attributes.propertyId]">
@@ -17,7 +16,7 @@ import { Meta, Title } from '@angular/platform-browser';
           </a>
         </li>
       }
-    </ul> -->
+    </ul>
   `,
   imports: [RouterLink],
 })
