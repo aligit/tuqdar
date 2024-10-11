@@ -1,4 +1,5 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+bun.lockb
 
 # Compiled output
 /dist
@@ -42,4 +43,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-bun.lockb
