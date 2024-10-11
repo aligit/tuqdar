@@ -1,13 +1,12 @@
 <script lang="ts">
+import {RouterOutlet,RouterLink} from '@angular/router' with {analog: 'imports'};
+
 import { AsyncPipe } from '@angular/common';
 import { inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { signal } from '@angular/core';
 
-defineMetadata({
-    imports: [AsyncPipe]
-})
 
   const route = inject(ActivatedRoute);
   const slug = route.paramMap.pipe(map((params) => params.get('slug')));
@@ -21,13 +20,12 @@ defineMetadata({
   }
 
 </script>
-
-<template>
-     <h2>Current: {{ slug | async }}</h2>
-  <div class="container">
-    <button (click)="add()">{{count()}}</button>
-  </div>     
-</template>
+  <template>
+     <h2>Current Magic Type: {{ slug | async }}</h2>
+     <div class="container">
+       <button (click)="add()">Clicked {{count()}} times</button>
+     </div>     
+   </template>
 
 <style>
   .container {

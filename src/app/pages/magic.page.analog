@@ -5,6 +5,11 @@ import {RouterOutlet,RouterLink} from '@angular/router' with {analog: 'imports'}
 <template>
 
   <h1>Magic!</h1>
-  <p><a routerLink="/magic/test">test</a><a routerLink="/magic/other">other</a></p>
+
+        <p>
+       <a routerLink="/magic/test" style="margin-right: 10px;">Test</a>
+       <a routerLink="/magic/other">Other</a>
+     </p>
+    
   <router-outlet></router-outlet>
 </template>
