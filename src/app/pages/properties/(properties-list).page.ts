@@ -19,6 +19,12 @@ import { Meta, Title } from '@angular/platform-browser';
     </ul>
   `,
   imports: [RouterLink],
+  styles: `
+    a {
+         position: relative;
+         z-index: 1;
+       }
+  `
 })
 export default class PropertiesListComponent {
   constructor(private meta: Meta, private title: Title) {

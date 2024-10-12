@@ -24,12 +24,11 @@ providers: [
           <p>Our mission is to help you find your dream property with ease and confidence.</p>
         </mat-card-content>
       </mat-card>
-  <h1>Magic!</h1>
-  <p><a routerLink="/magic/test">test</a>
-        </p>
-<p>
-        <a routerLink="/magic/other">other</a></p>
-  <router-outlet></router-outlet>
+      <h1>Magic!</h1>
+      <p><a routerLink="/magic/test">test</a>
+      </p>
+      <p>
+      <a routerLink="/magic/other">other</a></p>
     </div>
   `,
   styles: `
@@ -42,6 +41,10 @@ providers: [
       margin: 2rem auto;
       padding: 0 1rem;
     }
+    a {
+         position: relative;
+         z-index: 1;
+       }
   `,
 })
 export default class AboutPageComponent { }
