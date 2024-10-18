@@ -1,0 +1,37 @@
+<script lang="ts">
+import { RouterLink } from '@angular/router' with { analog: 'imports' };
+import { injectContentFiles } from '@analogjs/content';
+import { Meta, Title } from '@angular/platform-browser';
+import { PropertyAttributes } from './models';
+import { inject } from '@angular/core';
+
+const meta = inject(Meta);
+const title = inject(Title);
+
+title.setTitle('Property Listings');
+meta.updateTag({ name: 'description', content: 'Browse our property listings' });
+
+const properties = injectContentFiles<PropertyAttributes>((contentFile) =>
+  contentFile.filename.includes('/properties/')
+);
+</script>
+
+<template>
+  <h2>Properties List</h2>
+  <ul>
+    @for (property of properties; track property.attributes.propertyId) {
+      <li>
+        <a [routerLink]="['/properties', property.attributes.propertyId]">
+          {{ property.attributes.title }}
+        </a>
+      </li>
+    }
+  </ul>
+</template>
+
+<style>
+  a {
+    position: relative;
+    z-index: 1;
+  }
+</style>
