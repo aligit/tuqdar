@@ -72,8 +72,12 @@
     - [ ] Implement hash-based filenames for cache busting if not already handled by AnalogJS
 
 11. Home Page:
+
     - [ ] Ask which villa to show in the featured home page and provide pictures and ask for title and description
     - [ ] Create small sub-paragraphs with graphics and text to better describe the mentality of twin houses and the architecture(ask ghazal and update accordingly)
     - [ ] Update the sub-paragraphs with financing options
+
+12. Properties Page:
+    - [ ] Try to use analog in the index and about page but use angular components for the properties as it has more functionlity.
 
 This todo list focuses on the specific areas you mentioned, particularly around font and icon management, AnalogJS improvements, and Vercel deployment. It should help you prepare your website for launch, even without property listings at this stage.
