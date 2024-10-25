@@ -5,8 +5,6 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet],
   template: `
-    <h2>Properties(properties.page.ts)</h2>
-
     <router-outlet></router-outlet>
   `,
 })

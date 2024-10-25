@@ -1,0 +1,44 @@
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  .properties-container {
+    background-color: mat.get-theme-color($theme, surface);
+    color: mat.get-theme-color($theme, on-surface);
+  }
+
+  .property-card {
+    background-color: rgba(mat.get-theme-color($theme, surface), 0.7);
+  }
+
+  h2, .property-card h3 {
+    color: mat.get-theme-color($theme, primary);
+  }
+
+  mat-card-actions button {
+    color: mat.get-theme-color($theme, primary);
+  }
+}
+
+@mixin typography($theme) {
+  h2 {
+    font: var(--mat-display-small-font);
+    letter-spacing: var(--mat-display-small-letter-spacing);
+  }
+
+  .property-card {
+    h3 {
+      font: var(--mat-title-large-font);
+      letter-spacing: var(--mat-title-large-letter-spacing);
+    }
+
+    p {
+      font: var(--mat-body-medium-font);
+      letter-spacing: var(--mat-body-medium-letter-spacing);
+    }
+  }
+}
+
+@mixin theme($theme) {
+  @include color($theme);
+  @include typography($theme);
+}

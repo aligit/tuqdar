@@ -23,13 +23,27 @@ import { IconSvgService } from './services/icon-svg.service';
         margin: 0;
         padding: 0;
       }
+      .app-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 100%;
+      }
 
       .content {
         flex: 1;
-        padding: 2rem;
+        padding-top: 64px;
+        padding-left: 2rem;
+        padding-right: 2rem;
         max-width: 1280px;
         margin: 0 auto;
         width: 100%;
+        box-sizing: border-box;
+      }
+      @media (max-width: 600px) {
+        .content {
+          padding-top: 56px;
+        }
       }
     `,
   ],

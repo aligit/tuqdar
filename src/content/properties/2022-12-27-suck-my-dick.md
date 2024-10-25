@@ -3,6 +3,10 @@ title: My First property
 propertyId: 2022-12-27-suck-my-dick
 description: My First Post Description
 coverImage: https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80
+price: 5000000000
+size: 500
+location: north
+type: villa
 ---
 
 # Example Blog Post

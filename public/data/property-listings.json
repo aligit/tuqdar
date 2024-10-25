@@ -1,0 +1,145 @@
+{
+  "categories": [
+    {
+      "name": "ویلاهای شمال",
+      "properties": [
+        {
+          "propertyId": "villa-north-1",
+          "title": "ویلای لوکس ساحلی نوشهر",
+          "size": 450,
+          "price": 25000000000,
+          "location": "نوشهر",
+          "coverImage": "/images/properties/villa-north-1.jpg",
+          "description": "ویلای مدرن و لوکس با دسترسی مستقیم به ساحل"
+        },
+        {
+          "propertyId": "villa-north-2",
+          "title": "ویلای جنگلی رامسر",
+          "size": 380,
+          "price": 18000000000,
+          "location": "رامسر",
+          "coverImage": "/images/properties/villa-north-2.jpg",
+          "description": "ویلای دوبلکس با چشم‌انداز جنگل"
+        },
+        {
+          "propertyId": "villa-north-3",
+          "title": "ویلای مدرن محمودآباد",
+          "size": 520,
+          "price": 32000000000,
+          "location": "محمودآباد",
+          "coverImage": "/images/properties/villa-north-3.jpg",
+          "description": "ویلای نوساز با طراحی مدرن و استخر سرپوشیده"
+        },
+        {
+          "propertyId": "villa-north-4",
+          "title": "ویلای استخردار چالوس",
+          "size": 600,
+          "price": 42000000000,
+          "location": "چالوس",
+          "coverImage": "/images/properties/villa-north-4.jpg",
+          "description": "ویلای لاکچری با استخر بی‌نهایت و ویوی ۳۶۰ درجه به دریا"
+        },
+        {
+          "propertyId": "villa-north-5",
+          "title": "ویلای ساحلی متل‌قو",
+          "size": 420,
+          "price": 28000000000,
+          "location": "متل‌قو",
+          "coverImage": "/images/properties/villa-north-5.jpg",
+          "description": "ویلای دوبلکس با دسترسی اختصاصی به ساحل و روف‌گاردن"
+        },
+        {
+          "propertyId": "villa-north-6",
+          "title": "ویلای جنگلی کلاردشت",
+          "size": 480,
+          "price": 35000000000,
+          "location": "کلاردشت",
+          "coverImage": "/images/properties/villa-north-6.jpg",
+          "description": "ویلای چوبی با معماری مدرن در دل جنگل‌های کلاردشت"
+        },
+        {
+          "propertyId": "villa-north-7",
+          "title": "ویلای لاکچری سلمان‌شهر",
+          "size": 550,
+          "price": 38000000000,
+          "location": "سلمان‌شهر",
+          "coverImage": "/images/properties/villa-north-7.jpg",
+          "description": "ویلای سوپرلوکس با امکانات کامل رفاهی و سالن ورزشی"
+        },
+        {
+          "propertyId": "villa-north-8",
+          "title": "ویلای مدرن نمک‌آبرود",
+          "size": 420,
+          "price": 31000000000,
+          "location": "نمک‌آبرود",
+          "coverImage": "/images/properties/villa-north-8.jpg",
+          "description": "ویلای نوساز با طراحی منحصر به فرد و سونای خشک"
+        }
+      ]
+    },
+    {
+      "name": "زمین‌های شمال و لواسان",
+      "properties": [
+        {
+          "propertyId": "land-lavasan-1",
+          "title": "زمین مسکونی لواسان",
+          "size": 1000,
+          "price": 45000000000,
+          "location": "لواسان",
+          "coverImage": "/images/properties/land-lavasan-1.jpg",
+          "description": "زمین با موقعیت عالی و سند تک برگ"
+        },
+        {
+          "propertyId": "land-north-1",
+          "title": "زمین ساحلی نور",
+          "size": 800,
+          "price": 28000000000,
+          "location": "نور",
+          "coverImage": "/images/properties/land-north-1.jpg",
+          "description": "زمین با کاربری مسکونی و دید به دریا"
+        },
+        {
+          "propertyId": "land-lavasan-2",
+          "title": "زمین ویلایی لواسان",
+          "size": 1200,
+          "price": 55000000000,
+          "location": "لواسان",
+          "coverImage": "/images/properties/land-lavasan-2.jpg",
+          "description": "زمین با چشم‌انداز کوهستان و مجوز ساخت"
+        }
+      ]
+    },
+    {
+      "name": "آپارتمان‌های تهران",
+      "properties": [
+        {
+          "propertyId": "apartment-tehran-1",
+          "title": "آپارتمان لوکس فرمانیه",
+          "size": 185,
+          "price": 85000000000,
+          "location": "فرمانیه",
+          "coverImage": "/images/properties/apartment-tehran-1.jpg",
+          "description": "آپارتمان فول امکانات با لابی مجلل"
+        },
+        {
+          "propertyId": "apartment-tehran-2",
+          "title": "پنت‌هاوس زعفرانیه",
+          "size": 280,
+          "price": 120000000000,
+          "location": "زعفرانیه",
+          "coverImage": "/images/properties/apartment-tehran-2.jpg",
+          "description": "پنت‌هاوس دوبلکس با تراس اختصاصی"
+        },
+        {
+          "propertyId": "apartment-tehran-3",
+          "title": "آپارتمان نیاوران",
+          "size": 165,
+          "price": 75000000000,
+          "location": "نیاوران",
+          "coverImage": "/images/properties/apartment-tehran-3.jpg",
+          "description": "آپارتمان نوساز با متریال درجه یک"
+        }
+      ]
+    }
+  ]
+}

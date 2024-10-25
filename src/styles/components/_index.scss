@@ -4,10 +4,13 @@
 // TODO: make sure all mixin components are imported
 @use "../../app/components/header2/header2-theme" as header2;
 @use "../../app/components/banner/banner" as banner;
-@use "../../app/components/featured-properties/featured-properties" as featured-properties;
+@use "../../app/components/featured-properties/featured-properties" as
+  featured-properties;
+@use "../../app/pages/properties/properties" as properties;
 
 @mixin theme($theme) {
   @include header2.theme($theme);
   @include featured-properties.theme($theme);
   @include banner.theme($theme);
+  @include properties.theme($theme);
 }
