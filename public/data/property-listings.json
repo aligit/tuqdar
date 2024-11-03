@@ -1,7 +1,7 @@
 {
   "categories": [
     {
-      "name": "ویلاهای شمال",
+      "name": "villa-north",
       "properties": [
         {
           "propertyId": "villa-north-1",
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "name": "زمین‌های شمال و لواسان",
+      "name": "lavasan-and-north-land",
       "properties": [
         {
           "propertyId": "land-lavasan-1",
@@ -110,7 +110,7 @@
       ]
     },
     {
-      "name": "آپارتمان‌های تهران",
+      "name": "tehran-appartment",
       "properties": [
         {
           "propertyId": "apartment-tehran-1",

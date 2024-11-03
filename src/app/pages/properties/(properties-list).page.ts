@@ -19,9 +19,9 @@ import { Category, PropertyAttributes, PropertyResponse } from './models';
   ],
   template: `
     @if (categories) {
-      <div>
+      <div class="properties-content">
         @for (category of categories; track category.name) {
-          <section>
+          <section [id]="category.name">
             <h2>{{ category.name }}</h2>
             <div class="property-grid">
               @for (
@@ -65,76 +65,75 @@ import { Category, PropertyAttributes, PropertyResponse } from './models';
       </div>
     }
   `,
-  styles: `
-    :host {
-      display: block;
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
-      padding: 24px;
-    }
+  styles: [
+    `
+      .properties-content {
+        padding: 24px;
+      }
 
-    section {
-      margin-bottom: 32px;
-    }
+      section {
+        margin-bottom: 32px;
+        scroll-margin-top: 80px;
+      }
 
-    h2 {
-      margin-bottom: 16px;
-      position: sticky;
-      top: 0;
-      background: var(--mat-toolbar-container-background-color);
-      padding: 16px 0;
-      z-index: 1;
-    }
+      h2 {
+        margin-bottom: 16px;
+        position: sticky;
+        top: 64px;
+        background: var(--mat-toolbar-container-background-color);
+        padding: 16px 0;
+        z-index: 1;
+      }
 
-    .property-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-
-    .property-card {
-      max-width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .property-image {
-      object-fit: cover;
-      height: 168px;
-      width: 100%;
-    }
-
-    mat-card-content {
-      flex-grow: 1;
-    }
-
-    mat-card-content h3 {
-      margin-bottom: 8px;
-    }
-
-    mat-divider {
-      margin: 32px 0;
-    }
-
-    @media (max-width: 1024px) {
       .property-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .property-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 32px;
       }
 
-      :host {
-        padding: 16px;
+      .property-card {
+        max-width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
       }
-    }
-  `,
+
+      .property-image {
+        object-fit: cover;
+        height: 168px;
+        width: 100%;
+      }
+
+      mat-card-content {
+        flex-grow: 1;
+      }
+
+      mat-card-content h3 {
+        margin-bottom: 8px;
+      }
+
+      mat-divider {
+        margin: 32px 0;
+      }
+
+      @media (max-width: 1024px) {
+        .property-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .property-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .properties-content {
+          padding: 16px;
+        }
+      }
+    `,
+  ],
 })
 export default class PropertiesListComponent {
   private http = inject(HttpClient);
@@ -144,7 +143,6 @@ export default class PropertiesListComponent {
     this.http.get<PropertyResponse>('/data/property-listings.json').subscribe({
       next: (response) => {
         this.categories = response.categories;
-        console.log('Loaded categories:', this.categories); // Debug log
       },
       error: (error) => {
         console.error('Error loading properties:', error);
