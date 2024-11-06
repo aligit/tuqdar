@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -26,7 +26,11 @@ import { MatListModule } from '@angular/material/list';
       <mat-sidenav mode="side" opened class="categories-nav">
         <mat-nav-list>
           @for (category of categories; track category.name) {
-            <a mat-list-item (click)="scrollToCategory(category)">
+            <a
+              mat-list-item
+              (click)="scrollToCategory(category)"
+              [class.active]="activeCategory === category.name"
+            >
               {{ category.name }}
             </a>
           }
@@ -56,7 +60,8 @@ import { MatListModule } from '@angular/material/list';
                         <p>
                           قیمت:
                           {{
-                            property.price | currency: 'IRR' : 'symbol' : '1.0-0'
+                            property.price
+                              | currency: 'IRR' : 'symbol' : '1.0-0'
                           }}
                           تومان
                         </p>
@@ -166,7 +171,9 @@ import { MatListModule } from '@angular/material/list';
 })
 export default class PropertiesListComponent {
   private http = inject(HttpClient);
+  private viewportScroller = inject(ViewportScroller);
   categories: Category[] = [];
+  activeCategory: string = '';
 
   ngOnInit() {
     this.http.get<PropertyResponse>('/data/property-listings.json').subscribe({
@@ -177,6 +184,27 @@ export default class PropertiesListComponent {
       error: (error) => {
         console.error('Error loading properties:', error);
       },
+    });
+  }
+  ngAfterViewInit() {
+    // Set up intersection observer to detect which category is in view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.activeCategory = entry.target.id;
+          }
+        });
+      },
+      {
+        rootMargin: '-20% 0px -80% 0px', // Adjust these values to control when the active state changes
+      },
+    );
+
+    // Observe all category sections
+    this.categories.forEach((category) => {
+      const element = document.getElementById(category.name);
+      if (element) observer.observe(element);
     });
   }
 

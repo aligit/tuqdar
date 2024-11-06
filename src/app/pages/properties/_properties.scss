@@ -1,4 +1,4 @@
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 
 @mixin color($theme) {
   .properties-container {
@@ -15,37 +15,55 @@
     background-color: mat.get-theme-color($theme, surface-container);
   }
 
-  h2, .property-card h3 {
+  h2,
+  .property-card h3 {
     color: mat.get-theme-color($theme, primary);
   }
 
   mat-card-actions button {
     color: mat.get-theme-color($theme, primary);
   }
+  .categories-nav {
+    .mat-list-item {
+      &.active {
+        background-color: mat.get-theme-color($theme, secondary-container);
+        color: mat.get-theme-color($theme, on-secondary-container);
+      }
+
+      &:hover {
+        background-color: mat.get-theme-color(
+          $theme,
+          surface-container-highest
+        );
+      }
+    }
+  }
 }
 
 @mixin typography($theme) {
-  h2 {
-    font: var(--mat-display-small-font);
-    letter-spacing: var(--mat-display-small-letter-spacing);
-  }
-
   .categories-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
     .mat-list-item {
-      font: var(--mat-body-large-font);
-      letter-spacing: var(--mat-body-large-letter-spacing);
+      font: var(--mat-title-medium-font);
+      letter-spacing: var(--mat-title-medium-letter-spacing);
+      transition: all 0.3s ease;
+
+      &.active {
+        font-weight: var(--mat-font-weight-bold);
+        transform: scale(1.05);
+      }
     }
   }
 
-  .property-card {
-    h3 {
-      font: var(--mat-title-large-font);
-      letter-spacing: var(--mat-title-large-letter-spacing);
-    }
-
-    p {
-      font: var(--mat-body-medium-font);
-      letter-spacing: var(--mat-body-medium-letter-spacing);
+  section {
+    h2 {
+      font: var(--mat-headline-large-font);
+      letter-spacing: var(--mat-headline-large-letter-spacing);
+      margin-bottom: 1.5rem;
     }
   }
 }
