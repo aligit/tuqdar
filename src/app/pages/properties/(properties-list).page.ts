@@ -100,11 +100,6 @@ import { MatListModule } from '@angular/material/list';
 
       h2 {
         margin-bottom: 16px;
-        position: sticky;
-        top: 64px;
-        background: var(--mat-toolbar-container-background-color);
-        padding: 16px 0;
-        z-index: 1;
       }
 
       .property-grid {
