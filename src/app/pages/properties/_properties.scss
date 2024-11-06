@@ -7,63 +7,98 @@
   }
 
   .categories-nav {
-    background-color: mat.get-theme-color($theme, surface-container);
-    border-right: 1px solid mat.get-theme-color($theme, outline);
+    background-color: mat.get-theme-color($theme, surface-container-low);
+    border-right: 1px solid mat.get-theme-color($theme, outline-variant);
+
+    .mat-mdc-list-item {
+      margin: 8px 16px;
+      border-radius: 16px;
+      
+      &.active {
+        background-color: mat.get-theme-color($theme, secondary-container);
+        color: mat.get-theme-color($theme, on-secondary-container);
+        
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          width: 4px;
+          height: 24px;
+          background-color: mat.get-theme-color($theme, primary);
+          border-radius: 0 4px 4px 0;
+        }
+      }
+
+      &:hover:not(.active) {
+        background-color: mat.get-theme-color($theme, surface-container-highest);
+        color: mat.get-theme-color($theme, on-surface-variant);
+      }
+    }
   }
 
   .property-card {
     background-color: mat.get-theme-color($theme, surface-container);
+    border: 1px solid mat.get-theme-color($theme, outline-variant);
+    
+    h3 {
+      color: mat.get-theme-color($theme, on-surface);
+    }
+    
+    p {
+      color: mat.get-theme-color($theme, on-surface-variant);
+    }
   }
 
-  h2,
-  .property-card h3 {
-    color: mat.get-theme-color($theme, primary);
+  section {
+    h2 {
+      color: mat.get-theme-color($theme, on-surface);
+      border-bottom: 2px solid mat.get-theme-color($theme, primary);
+      display: inline-block;
+      padding-bottom: 8px;
+    }
   }
 
-  mat-card-actions button {
-    color: mat.get-theme-color($theme, primary);
-  }
-  .categories-nav {
-    .mat-list-item {
-      &.active {
-        background-color: mat.get-theme-color($theme, secondary-container);
-        color: mat.get-theme-color($theme, on-secondary-container);
-      }
-
-      &:hover {
-        background-color: mat.get-theme-color(
-          $theme,
-          surface-container-highest
-        );
-      }
+  mat-card-actions {
+    a {
+      color: mat.get-theme-color($theme, primary);
     }
   }
 }
 
 @mixin typography($theme) {
   .categories-nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-
-    .mat-list-item {
-      font: var(--mat-title-medium-font);
-      letter-spacing: var(--mat-title-medium-letter-spacing);
-      transition: all 0.3s ease;
-
+    .mat-mdc-list-item {
+      font: var(--mat-headline-small-font);
+      letter-spacing: var(--mat-headline-small-letter-spacing);
+      line-height: 2;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      
       &.active {
         font-weight: var(--mat-font-weight-bold);
-        transform: scale(1.05);
+        transform: scale(1.02);
       }
     }
   }
 
   section {
     h2 {
-      font: var(--mat-headline-large-font);
-      letter-spacing: var(--mat-headline-large-letter-spacing);
-      margin-bottom: 1.5rem;
+      font: var(--mat-display-small-font);
+      letter-spacing: var(--mat-display-small-letter-spacing);
+      margin: 2rem 0;
+    }
+  }
+
+  .property-card {
+    h3 {
+      font: var(--mat-title-large-font);
+      letter-spacing: var(--mat-title-large-letter-spacing);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font: var(--mat-body-large-font);
+      letter-spacing: var(--mat-body-large-letter-spacing);
+      line-height: 1.5;
     }
   }
 }

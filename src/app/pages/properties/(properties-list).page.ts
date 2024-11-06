@@ -89,61 +89,71 @@ import { MatListModule } from '@angular/material/list';
   `,
   styles: [
     `
+      .properties-container {
+        height: calc(100vh - 64px);
+        overflow: hidden;
+      }
+
       .properties-content {
-        padding: 24px;
+        padding: 24px 32px;
+        overflow-y: auto;
+      }
+
+      .categories-nav {
+        width: 280px;
+        padding: 24px 0;
+        border-radius: 0;
+        
+        mat-nav-list {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          margin-top: 24px;
+        }
       }
 
       section {
-        margin-bottom: 32px;
+        margin-bottom: 48px;
         scroll-margin-top: 80px;
-      }
-
-      h2 {
-        margin-bottom: 16px;
       }
 
       .property-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-        margin-bottom: 32px;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 24px;
+        margin: 24px 0;
       }
 
       .property-card {
-        max-width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
+        border-radius: 16px;
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+          transform: translateY(-4px);
+        }
       }
 
       .property-image {
         object-fit: cover;
-        height: 168px;
+        height: 200px;
         width: 100%;
+        border-radius: 16px 16px 0 0;
       }
 
       mat-card-content {
         flex-grow: 1;
-      }
-
-      mat-card-content h3 {
-        margin-bottom: 8px;
-      }
-
-      mat-divider {
-        margin: 32px 0;
-      }
-      .properties-container {
-        height: calc(100vh - 64px);
-      }
-
-      .categories-nav {
-        width: 250px;
         padding: 16px;
       }
 
-      mat-nav-list {
-        margin-top: 16px;
+      mat-card-actions {
+        padding: 8px 16px 16px;
+      }
+
+      mat-divider {
+        margin: 48px 0;
       }
 
       @media (max-width: 1024px) {
@@ -153,12 +163,12 @@ import { MatListModule } from '@angular/material/list';
       }
 
       @media (max-width: 600px) {
-        .property-grid {
-          grid-template-columns: 1fr;
-        }
-
         .properties-content {
           padding: 16px;
+        }
+        
+        .property-grid {
+          grid-template-columns: 1fr;
         }
       }
     `,
