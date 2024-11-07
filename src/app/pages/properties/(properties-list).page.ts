@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 import { Category, PropertyResponse } from './models';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map, shareReplay } from 'rxjs';
 
 @Component({
   selector: 'app-properties-list',
@@ -23,7 +25,11 @@ import { MatListModule } from '@angular/material/list';
   ],
   template: `
     <mat-sidenav-container class="properties-container">
-      <mat-sidenav mode="side" opened class="categories-nav">
+      <mat-sidenav
+        mode="side"
+        [opened]="!(isHandset$ | async)"
+        class="categories-nav"
+      >
         <mat-nav-list>
           @for (category of categories; track category.id) {
             <a
@@ -177,8 +183,13 @@ import { MatListModule } from '@angular/material/list';
 export default class PropertiesListComponent {
   private http = inject(HttpClient);
   private viewportScroller = inject(ViewportScroller);
+  private breakpointObserver = inject(BreakpointObserver);
   categories: Category[] = [];
   activeCategory: string = '';
+  isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    map((result) => result.matches),
+    shareReplay(),
+  );
 
   ngOnInit() {
     this.http.get<PropertyResponse>('/data/property-listings.json').subscribe({
