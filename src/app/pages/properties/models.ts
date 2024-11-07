@@ -9,15 +9,6 @@ type PropertyAttributes = {
   type: string;
 };
 
-type PropertyCategory = {
-  name: string;
-  properties: PropertyAttributes[];
-};
-
-type PropertyData = {
-  categories: PropertyCategory[];
-};
-
 type Property = {
   propertyId: string;
   title: string;
@@ -28,6 +19,7 @@ type Property = {
 };
 
 type Category = {
+  id: string;
   name: string;
   properties: Property[];
 };
@@ -36,5 +28,4 @@ type PropertyResponse = {
   categories: Category[];
 };
 
-
-export { PropertyAttributes, PropertyCategory, PropertyData, Property, Category, PropertyResponse };
+export { PropertyAttributes, Property, Category, PropertyResponse };

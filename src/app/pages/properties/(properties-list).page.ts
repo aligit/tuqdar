@@ -25,11 +25,11 @@ import { MatListModule } from '@angular/material/list';
     <mat-sidenav-container class="properties-container">
       <mat-sidenav mode="side" opened class="categories-nav">
         <mat-nav-list>
-          @for (category of categories; track category.name) {
+          @for (category of categories; track category.id) {
             <a
               mat-list-item
               (click)="scrollToCategory(category)"
-              [class.active]="activeCategory === category.name"
+              [class.active]="activeCategory === category.id"
             >
               {{ category.name }}
             </a>
@@ -39,8 +39,8 @@ import { MatListModule } from '@angular/material/list';
       <mat-sidenav-content>
         @if (categories) {
           <div class="properties-content">
-            @for (category of categories; track category.name) {
-              <section [id]="category.name">
+            @for (category of categories; track category.id) {
+              <section [id]="category.id">
                 <h2>{{ category.name }}</h2>
                 <div class="property-grid">
                   @for (
@@ -103,7 +103,7 @@ import { MatListModule } from '@angular/material/list';
         width: 280px;
         padding: 24px 0;
         border-radius: 0;
-        
+
         mat-nav-list {
           display: flex;
           flex-direction: column;
@@ -166,7 +166,7 @@ import { MatListModule } from '@angular/material/list';
         .properties-content {
           padding: 16px;
         }
-        
+
         .property-grid {
           grid-template-columns: 1fr;
         }
@@ -208,13 +208,13 @@ export default class PropertiesListComponent {
 
     // Observe all category sections
     this.categories.forEach((category) => {
-      const element = document.getElementById(category.name);
+      const element = document.getElementById(category.id);
       if (element) observer.observe(element);
     });
   }
 
   scrollToCategory(category: Category): void {
-    const element = document.getElementById(category.name);
+    const element = document.getElementById(category.id);
     element?.scrollIntoView({ behavior: 'smooth' });
   }
 }
