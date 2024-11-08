@@ -37,3 +37,11 @@ Run `npm run test` to run unit tests with [Vitest](https://vitest.dev).
 ## Create an inline single file angular component if a small component
 
 - bunx ng generate @angular/material:navigation header2 --inline-style --inline-template --skip-tests --routing --style scss
+
+## Fonts
+
+To generate svg based fonts add them to the icon directory and run the following command:
+
+```sh
+bun run generate-sprite
+```
