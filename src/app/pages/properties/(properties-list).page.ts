@@ -10,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-properties-list',
@@ -22,6 +23,7 @@ import { map, shareReplay } from 'rxjs';
     RouterLink,
     MatSidenavModule,
     MatListModule,
+    MatIconModule,
   ],
   template: `
     <mat-sidenav-container class="properties-container">
@@ -62,8 +64,27 @@ import { map, shareReplay } from 'rxjs';
                       />
                       <mat-card-content>
                         <h3>{{ property.title }}</h3>
-                        <p>متراژ: {{ property.size }} متر مربع</p>
-                        <p>
+                        <div class="property-features">
+                          <div class="feature">
+                            <mat-icon svgIcon="square_foot"></mat-icon>
+                            <span>{{ property.size }} متر مربع</span>
+                          </div>
+                          <div class="feature">
+                            <mat-icon svgIcon="bed"></mat-icon>
+                            <span>{{ property.bedrooms }} خواب</span>
+                          </div>
+                          <div class="feature">
+                            <mat-icon svgIcon="bathtub"></mat-icon>
+                            <span>{{ property.bathrooms }} سرویس</span>
+                          </div>
+                          @if (property.landscape) {
+                            <div class="feature">
+                              <mat-icon svgIcon="landscape"></mat-icon>
+                              <span>دارای باغچه</span>
+                            </div>
+                          }
+                        </div>
+                        <p class="price">
                           قیمت:
                           {{
                             property.price
@@ -95,6 +116,29 @@ import { map, shareReplay } from 'rxjs';
   `,
   styles: [
     `
+      .property-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin: 16px 0;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--mat-text-secondary-color);
+
+        mat-icon {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .price {
+        margin-top: 16px;
+        font-weight: 500;
+      }
       .properties-container {
         height: calc(100vh - 64px);
         overflow: hidden;

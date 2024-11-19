@@ -12,6 +12,9 @@ type PropertyAttributes = {
 type Property = {
   propertyId: string;
   title: string;
+  bedrooms: number;
+  bathrooms: number;
+  landscape: number;
   size: number;
   price: number;
   location: string;
