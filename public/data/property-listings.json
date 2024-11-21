@@ -12,7 +12,11 @@
           "price": 25000000000,
           "location": "نوشهر",
           "coverImage": "/images/properties/villa-north-1.jpg",
-          "description": "ویلای مدرن و لوکس با دسترسی مستقیم به ساحل"
+          "description": "ویلای مدرن و لوکس با دسترسی مستقیم به ساحل",
+          "agent": {
+            "name": "علی محمدی",
+            "avatar": "path/to/avatar.jpg"
+          }
         },
         {
           "propertyId": "villa-north-2",
@@ -22,7 +26,11 @@
           "price": 18000000000,
           "location": "رامسر",
           "coverImage": "/images/properties/villa-north-2.jpg",
-          "description": "ویلای دوبلکس با چشم‌انداز جنگل"
+          "description": "ویلای دوبلکس با چشم‌انداز جنگل",
+          "agent": {
+            "name": "علی محمدی",
+            "avatar": "path/to/avatar.jpg"
+          }
         },
         {
           "propertyId": "villa-north-3",
@@ -32,7 +40,11 @@
           "price": 32000000000,
           "location": "محمودآباد",
           "coverImage": "/images/properties/villa-north-3.jpg",
-          "description": "ویلای نوساز با طراحی مدرن و استخر سرپوشیده"
+          "description": "ویلای نوساز با طراحی مدرن و استخر سرپوشیده",
+          "agent": {
+            "name": "علی محمدی",
+            "avatar": "path/to/avatar.jpg"
+          }
         },
         {
           "propertyId": "villa-north-4",
@@ -42,7 +54,11 @@
           "price": 42000000000,
           "location": "چالوس",
           "coverImage": "/images/properties/villa-north-4.jpg",
-          "description": "ویلای لاکچری با استخر بی‌نهایت و ویوی ۳۶۰ درجه به دریا"
+          "description": "ویلای لاکچری با استخر بی‌نهایت و ویوی ۳۶۰ درجه به دریا",
+          "agent": {
+            "name": "علی محمدی",
+            "avatar": "path/to/avatar.jpg"
+          }
         },
         {
           "propertyId": "villa-north-5",
@@ -52,7 +68,11 @@
           "price": 28000000000,
           "location": "متل‌قو",
           "coverImage": "/images/properties/villa-north-5.jpg",
-          "description": "ویلای دوبلکس با دسترسی اختصاصی به ساحل و روف‌گاردن"
+          "description": "ویلای دوبلکس با دسترسی اختصاصی به ساحل و روف‌گاردن",
+          "agent": {
+            "name": "علی محمدی",
+            "avatar": "path/to/avatar.jpg"
+          }
         },
         {
           "propertyId": "villa-north-6",
@@ -62,7 +82,11 @@
           "price": 35000000000,
           "location": "کلاردشت",
           "coverImage": "/images/properties/villa-north-6.jpg",
-          "description": "ویلای چوبی با معماری مدرن در دل جنگل‌های کلاردشت"
+          "description": "ویلای چوبی با معماری مدرن در دل جنگل‌های کلاردشت",
+          "agent": {
+            "name": "علی محمدی",
+            "avatar": "path/to/avatar.jpg"
+          }
         },
         {
           "propertyId": "villa-north-7",
@@ -72,7 +96,11 @@
           "price": 38000000000,
           "location": "سلمان‌شهر",
           "coverImage": "/images/properties/villa-north-7.jpg",
-          "description": "ویلای سوپرلوکس با امکانات کامل رفاهی و سالن ورزشی"
+          "description": "ویلای سوپرلوکس با امکانات کامل رفاهی و سالن ورزشی",
+          "agent": {
+            "name": "علی محمدی",
+            "avatar": "path/to/avatar.jpg"
+          }
         },
         {
           "propertyId": "villa-north-8",

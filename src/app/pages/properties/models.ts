@@ -20,6 +20,12 @@ type Property = {
   price: number;
   location: string;
   coverImage: string;
+  agent?: Agent;
+};
+
+type Agent = {
+  name: string;
+  avatar: string;
 };
 
 type Category = {

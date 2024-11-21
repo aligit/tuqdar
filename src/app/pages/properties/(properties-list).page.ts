@@ -55,53 +55,58 @@ import { MatIconModule } from '@angular/material/icon';
                     property of category.properties;
                     track property.propertyId
                   ) {
-                    <mat-card appearance="outlined" class="property-card">
-                      <img
-                        mat-card-image
-                        [src]="property.coverImage"
-                        [alt]="property.title"
-                        class="property-image"
-                      />
+                    <mat-card class="property-card">
+                      <div class="image-container mat-elevation-z0">
+                        <img
+                          mat-card-image
+                          [src]="property.coverImage"
+                          [alt]="property.title"
+                        />
+                      </div>
+
                       <mat-card-content>
-                        <h3>{{ property.title }}</h3>
-                        <div class="property-features">
-                          <div class="feature">
-                            <mat-icon svgIcon="square_foot"></mat-icon>
-                            <span>{{ property.plotArea }} متر مربع</span>
-                          </div>
-                          <div class="feature">
-                            <mat-icon svgIcon="foundation"></mat-icon>
-                            <span>{{ property.builtArea }} متر مربع</span>
-                          </div>
-                          <div class="feature">
-                            <mat-icon svgIcon="bed"></mat-icon>
-                            <span>{{ property.bedrooms }} خواب</span>
-                          </div>
-                          <div class="feature">
-                            <mat-icon svgIcon="bathtub"></mat-icon>
-                            <span>{{ property.bathrooms }} سرویس</span>
-                          </div>
-                          @if (property.landscape) {
-                            <div class="feature">
-                              <mat-icon svgIcon="landscape"></mat-icon>
-                              <span>دارای باغچه</span>
-                            </div>
-                          }
+                        <div class="location">
+                          <mat-icon>location_on</mat-icon>
+                          <span class="address">{{ property.location }}</span>
                         </div>
-                        <p class="price">
-                          قیمت:
-                          {{ property.price }}
-                          تومان
-                        </p>
+
+                        <h2 class="title">{{ property.title }}</h2>
+
+                        <div class="details">
+                          <span class="detail-item">
+                            <mat-icon>bed</mat-icon>
+                            {{ property.bedrooms }} خواب
+                          </span>
+                          <span class="detail-item">
+                            <mat-icon>bathtub</mat-icon>
+                            {{ property.bathrooms }} سرویس
+                          </span>
+                          <span class="detail-item">
+                            <mat-icon>square_foot</mat-icon>
+                            {{ property.builtArea }} متر
+                          </span>
+                          <span class="detail-item" *ngIf="property.landscape">
+                            <mat-icon>yard</mat-icon>
+                            {{ property.landscape }} متر
+                          </span>
+                        </div>
+
+                        <div class="footer">
+                          <span class="price"
+                            >{{ property.price | number }} تومان</span
+                          >
+                          <div class="agent" *ngIf="property.agent">
+                            <img
+                              [src]="property.agent.avatar"
+                              [alt]="property.agent.name"
+                              class="agent-avatar"
+                            />
+                            <span class="agent-name">{{
+                              property.agent.name
+                            }}</span>
+                          </div>
+                        </div>
                       </mat-card-content>
-                      <mat-card-actions>
-                        <a
-                          mat-button
-                          color="primary"
-                          [routerLink]="['/properties', property.propertyId]"
-                          >جزئیات بیشتر</a
-                        >
-                      </mat-card-actions>
                     </mat-card>
                   }
                 </div>
@@ -117,109 +122,207 @@ import { MatIconModule } from '@angular/material/icon';
   `,
   styles: [
     `
-      .property-features {
+      .property-card {
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 16px;
+        transition: all 200ms ease;
+        cursor: pointer;
+        background: var(--mat-surface-container-low);
+        border: 1px solid var(--mat-surface-container-highest);
+
+        &:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--mat-elevation-2);
+        }
+      }
+
+      .image-container {
+        position: relative;
+        padding-top: 66.67%; // 3:2 aspect ratio
+        overflow: hidden;
+        background: var(--mat-surface-container);
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 200ms ease;
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
+      }
+
+      mat-card-content {
+        padding: 16px;
+      }
+
+      .location {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 8px;
+        color: var(--mat-primary);
+
+        mat-icon {
+          font-size: 18px;
+          width: 18px;
+          height: 18px;
+        }
+
+        .address {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--mat-on-surface-variant);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .title {
+        margin: 12px 0;
+        font-size: 20px;
+        line-height: 1.4;
+        font-weight: 500;
+        color: var(--mat-on-surface);
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .details {
         display: flex;
         flex-wrap: wrap;
         gap: 16px;
         margin: 16px 0;
-      }
 
-      .feature {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--mat-text-secondary-color);
-
-        mat-icon {
-          width: 20px;
-          height: 20px;
-        }
-      }
-
-      .price {
-        margin-top: 16px;
-        font-weight: 500;
-      }
-      .properties-container {
-        height: calc(100vh - 64px);
-        overflow: hidden;
-      }
-
-      .properties-content {
-        padding: 24px 32px;
-        overflow-y: auto;
-      }
-
-      .categories-nav {
-        width: 280px;
-        padding: 24px 0;
-        border-radius: 0;
-
-        mat-nav-list {
+        .detail-item {
           display: flex;
-          flex-direction: column;
-          gap: 8px;
-          margin-top: 24px;
+          align-items: center;
+          gap: 6px;
+          color: var(--mat-on-surface-variant);
+          font-size: 14px;
+
+          mat-icon {
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+            color: var(--mat-secondary);
+          }
         }
       }
 
-      section {
-        margin-bottom: 48px;
-        scroll-margin-top: 80px;
-      }
-
-      .property-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 24px;
-        margin: 24px 0;
-      }
-
-      .property-card {
-        height: 100%;
+      .footer {
         display: flex;
-        flex-direction: column;
-        border-radius: 16px;
-        transition: transform 0.2s ease-in-out;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--mat-outline-variant);
 
-        &:hover {
-          transform: translateY(-4px);
+        .price {
+          font-size: 18px;
+          font-weight: 600;
+          color: var(--mat-primary);
+          direction: rtl;
+
+          &::after {
+            content: ' تومان';
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--mat-on-surface-variant);
+          }
+        }
+
+        .agent {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 4px;
+          border-radius: 24px;
+          transition: background-color 200ms ease;
+
+          &:hover {
+            background-color: var(--mat-surface-container-highest);
+          }
+
+          .agent-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--mat-surface-container-highest);
+          }
+
+          .agent-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--mat-on-surface-variant);
+            margin-right: 4px;
+          }
         }
       }
 
-      .property-image {
-        object-fit: cover;
-        height: 200px;
-        width: 100%;
-        border-radius: 16px 16px 0 0;
-      }
+      // Responsive adjustments
+      @media (max-width: 599px) {
+        .property-card {
+          margin: 8px;
+        }
 
-      mat-card-content {
-        flex-grow: 1;
-        padding: 16px;
-      }
+        .title {
+          font-size: 18px;
+        }
 
-      mat-card-actions {
-        padding: 8px 16px 16px;
-      }
+        .details {
+          gap: 12px;
 
-      mat-divider {
-        margin: 48px 0;
-      }
+          .detail-item {
+            font-size: 13px;
 
-      @media (max-width: 1024px) {
-        .property-grid {
-          grid-template-columns: repeat(2, 1fr);
+            mat-icon {
+              font-size: 18px;
+              width: 18px;
+              height: 18px;
+            }
+          }
+        }
+
+        .footer {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+
+          .price {
+            font-size: 16px;
+          }
+
+          .agent {
+            width: 100%;
+            justify-content: flex-end;
+          }
         }
       }
 
-      @media (max-width: 600px) {
-        .properties-content {
-          padding: 16px;
+      // High-contrast mode adjustments
+      @media (forced-colors: active) {
+        .property-card {
+          border: 2px solid CanvasText;
         }
 
-        .property-grid {
-          grid-template-columns: 1fr;
+        .footer {
+          border-top: 1px solid CanvasText;
+        }
+
+        .agent-avatar {
+          border: 1px solid CanvasText;
         }
       }
     `,
