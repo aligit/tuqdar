@@ -67,7 +67,11 @@ import { MatIconModule } from '@angular/material/icon';
                         <div class="property-features">
                           <div class="feature">
                             <mat-icon svgIcon="square_foot"></mat-icon>
-                            <span>{{ property.size }} متر مربع</span>
+                            <span>{{ property.plotArea }} متر مربع</span>
+                          </div>
+                          <div class="feature">
+                            <mat-icon svgIcon="foundation"></mat-icon>
+                            <span>{{ property.builtArea }} متر مربع</span>
                           </div>
                           <div class="feature">
                             <mat-icon svgIcon="bed"></mat-icon>
@@ -86,10 +90,7 @@ import { MatIconModule } from '@angular/material/icon';
                         </div>
                         <p class="price">
                           قیمت:
-                          {{
-                            property.price
-                              | currency: 'IRR' : 'symbol' : '1.0-0'
-                          }}
+                          {{ property.price }}
                           تومان
                         </p>
                       </mat-card-content>

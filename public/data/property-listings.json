@@ -7,7 +7,8 @@
         {
           "propertyId": "villa-north-1",
           "title": "ویلای لوکس ساحلی نوشهر",
-          "size": 450,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 25000000000,
           "location": "نوشهر",
           "coverImage": "/images/properties/villa-north-1.jpg",
@@ -16,7 +17,8 @@
         {
           "propertyId": "villa-north-2",
           "title": "ویلای جنگلی رامسر",
-          "size": 380,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 18000000000,
           "location": "رامسر",
           "coverImage": "/images/properties/villa-north-2.jpg",
@@ -25,7 +27,8 @@
         {
           "propertyId": "villa-north-3",
           "title": "ویلای مدرن محمودآباد",
-          "size": 520,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 32000000000,
           "location": "محمودآباد",
           "coverImage": "/images/properties/villa-north-3.jpg",
@@ -34,7 +37,8 @@
         {
           "propertyId": "villa-north-4",
           "title": "ویلای استخردار چالوس",
-          "size": 600,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 42000000000,
           "location": "چالوس",
           "coverImage": "/images/properties/villa-north-4.jpg",
@@ -43,7 +47,8 @@
         {
           "propertyId": "villa-north-5",
           "title": "ویلای ساحلی متل‌قو",
-          "size": 420,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 28000000000,
           "location": "متل‌قو",
           "coverImage": "/images/properties/villa-north-5.jpg",
@@ -52,7 +57,8 @@
         {
           "propertyId": "villa-north-6",
           "title": "ویلای جنگلی کلاردشت",
-          "size": 480,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 35000000000,
           "location": "کلاردشت",
           "coverImage": "/images/properties/villa-north-6.jpg",
@@ -61,7 +67,8 @@
         {
           "propertyId": "villa-north-7",
           "title": "ویلای لاکچری سلمان‌شهر",
-          "size": 550,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 38000000000,
           "location": "سلمان‌شهر",
           "coverImage": "/images/properties/villa-north-7.jpg",
@@ -70,7 +77,8 @@
         {
           "propertyId": "villa-north-8",
           "title": "ویلای مدرن نمک‌آبرود",
-          "size": 420,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 31000000000,
           "location": "نمک‌آبرود",
           "coverImage": "/images/properties/villa-north-8.jpg",
@@ -85,7 +93,8 @@
         {
           "propertyId": "land-lavasan-1",
           "title": "زمین مسکونی لواسان",
-          "size": 1000,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 45000000000,
           "location": "لواسان",
           "coverImage": "/images/properties/land-lavasan-1.jpg",
@@ -94,7 +103,8 @@
         {
           "propertyId": "land-north-1",
           "title": "زمین ساحلی نور",
-          "size": 800,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 28000000000,
           "location": "نور",
           "coverImage": "/images/properties/land-north-1.jpg",
@@ -103,7 +113,8 @@
         {
           "propertyId": "land-lavasan-2",
           "title": "زمین ویلایی لواسان",
-          "size": 1200,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 55000000000,
           "location": "لواسان",
           "coverImage": "/images/properties/land-lavasan-2.jpg",
@@ -118,7 +129,8 @@
         {
           "propertyId": "apartment-tehran-1",
           "title": "آپارتمان لوکس فرمانیه",
-          "size": 185,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 85000000000,
           "location": "فرمانیه",
           "coverImage": "/images/properties/apartment-tehran-1.jpg",
@@ -127,7 +139,8 @@
         {
           "propertyId": "apartment-tehran-2",
           "title": "پنت‌هاوس زعفرانیه",
-          "size": 280,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 120000000000,
           "location": "زعفرانیه",
           "coverImage": "/images/properties/apartment-tehran-2.jpg",
@@ -136,7 +149,8 @@
         {
           "propertyId": "apartment-tehran-3",
           "title": "آپارتمان نیاوران",
-          "size": 165,
+          "builtArea": 100,
+          "plotArea": 200,
           "price": 75000000000,
           "location": "نیاوران",
           "coverImage": "/images/properties/apartment-tehran-3.jpg",

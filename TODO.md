@@ -26,7 +26,7 @@
 3. Optimize Assets:
 
    - [x] Use fonttools to subset Iran Sans font, including only necessary characters
-   - [ ] Optimize SVG icons using SVGO
+   - [x] Optimize SVG icons using SVGO
 
 4. Update index.html:
 

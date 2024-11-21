@@ -15,7 +15,8 @@ type Property = {
   bedrooms: number;
   bathrooms: number;
   landscape: number;
-  size: number;
+  plotArea: number;
+  builtArea: number;
   price: number;
   location: string;
   coverImage: string;

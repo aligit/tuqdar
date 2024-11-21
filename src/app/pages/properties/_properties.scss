@@ -1,6 +1,7 @@
 @use "@angular/material" as mat;
 
 @mixin color($theme) {
+  //Surface role is good for cards
   .properties-container {
     background-color: mat.get-theme-color($theme, surface);
     color: mat.get-theme-color($theme, on-surface);
@@ -13,13 +14,13 @@
     .mat-mdc-list-item {
       margin: 8px 16px;
       border-radius: 16px;
-      
+
       &.active {
         background-color: mat.get-theme-color($theme, secondary-container);
         color: mat.get-theme-color($theme, on-secondary-container);
-        
+
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           left: 0;
           width: 4px;
@@ -30,7 +31,10 @@
       }
 
       &:hover:not(.active) {
-        background-color: mat.get-theme-color($theme, surface-container-highest);
+        background-color: mat.get-theme-color(
+          $theme,
+          surface-container-highest
+        );
         color: mat.get-theme-color($theme, on-surface-variant);
       }
     }
@@ -39,11 +43,11 @@
   .property-card {
     background-color: mat.get-theme-color($theme, surface-container);
     border: 1px solid mat.get-theme-color($theme, outline-variant);
-    
+
     h3 {
       color: mat.get-theme-color($theme, on-surface);
     }
-    
+
     p {
       color: mat.get-theme-color($theme, on-surface-variant);
     }
@@ -72,7 +76,7 @@
       letter-spacing: var(--mat-headline-small-letter-spacing);
       line-height: 2;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      
+
       &.active {
         font-weight: var(--mat-font-weight-bold);
         transform: scale(1.02);
