@@ -84,7 +84,6 @@ This todo list focuses on the specific areas you mentioned, particularly around 
 
 # Ongoing
 
-- [ ] Integrate new google fonts and colors for property list
-  - put both price of land and built area
 - [ ] Fix fonts using material 3 api
 - [ ] Update Ads
+- [ ] Add a separator between listing properties and price
