@@ -5,6 +5,7 @@ import analog, { type PrerenderContentFile } from '@analogjs/platform';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: '/tuqdar/',
   build: {
     target: ['es2020'],
   },
@@ -13,6 +14,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     analog({
+      static: true,
       vite: {
         // Required to use the Analog SFC format
         experimental: {
