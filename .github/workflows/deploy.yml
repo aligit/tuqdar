@@ -25,6 +25,11 @@ jobs:
       - name: Copy 404.html
         run: cp dist/analog/public/index.html dist/analog/public/404.html
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Deploy Website
         env:
           GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
