@@ -1,11 +1,10 @@
 /// <reference types="vitest" />
 
 import { defineConfig } from 'vite';
-import analog, { type PrerenderContentFile } from '@analogjs/platform';
+import analog from '@analogjs/platform';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/tuqdar/',
   build: {
     target: ['es2020'],
   },
@@ -14,14 +13,8 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     analog({
+      ssr: false,
       static: true,
-      vite: {
-        // Required to use the Analog SFC format
-        experimental: {
-          supportAnalogFormat: true,
-        },
-        inlineStylesExtension: 'scss',
-      },
       prerender: {
         routes: async () => [
           '/',
@@ -41,7 +34,7 @@ export default defineConfig(({ mode }) => ({
           },
         ],
         sitemap: {
-          host: 'https://www.yourdomain.com/',
+          host: 'https://aligit.github.io/tuqdar',
         },
         postRenderingHooks: [
           async (route) => {
@@ -51,16 +44,10 @@ export default defineConfig(({ mode }) => ({
           },
         ],
       },
+      vite: {
+        experimental: { supportAnalogFormat: true },
+        inlineStylesExtension: 'scss',
+      },
     }),
   ],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: ['src/test-setup.ts'],
-    include: ['**/*.spec.ts'],
-    reporters: ['default'],
-  },
-  define: {
-    'import.meta.vitest': mode !== 'production',
-  },
 }));

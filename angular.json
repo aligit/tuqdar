@@ -5,7 +5,7 @@
   "projects": {
     "my-app": {
       "projectType": "application",
-      "root": ".",
+      "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -44,11 +44,11 @@
               "buildTarget": "my-app:build:production"
             }
           }
-        },
-        "test": {
-          "builder": "@analogjs/vitest-angular:test"
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

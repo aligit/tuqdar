@@ -1,4 +1,4 @@
-type PropertyAttributes = {
+export type PropertyAttributes = {
   title: string;
   propertyId: string;
   description: string;
@@ -9,7 +9,7 @@ type PropertyAttributes = {
   type: string;
 };
 
-type Property = {
+export type Property = {
   propertyId: string;
   title: string;
   bedrooms: number;
@@ -23,19 +23,17 @@ type Property = {
   agent?: Agent;
 };
 
-type Agent = {
+export type Agent = {
   name: string;
   avatar: string;
 };
 
-type Category = {
+export type Category = {
   id: string;
   name: string;
   properties: Property[];
 };
 
-type PropertyResponse = {
+export type PropertyResponse = {
   categories: Category[];
 };
-
-export { PropertyAttributes, Property, Category, PropertyResponse };
