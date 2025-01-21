@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 
 import { defineConfig } from 'vite';
-import analog from '@analogjs/platform';
+import analog, { PrerenderContentFile } from '@analogjs/platform';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => ({
       ssr: false,
       static: true,
       prerender: {
+        discover: true,
         routes: async () => [
           '/',
           '/about',
