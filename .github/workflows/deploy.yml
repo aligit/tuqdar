@@ -30,8 +30,9 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Deploy Website
-        env:
-          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: |
-          bunx angular-cli-ghpages --no-silent --dir="dist/analog/public"
+      - name: Deploy to GitHub Pages
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0 # Use the official action
+        with:
+          github_access_token: ${{ secrets.ACCESS_TOKEN }}
+          build_folder: dist/analog/public
+          base_href: /tuqdar/
