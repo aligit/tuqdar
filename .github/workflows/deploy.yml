@@ -1,4 +1,4 @@
-name: Build Deploy
+name: Build and Deploy
 
 on:
   push:
@@ -10,29 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+      - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-
-      - name: Install
-        run: bun install
-
-      - name: Build
-        run: bun run build
-
-      - name: Copy 404.html
-        run: cp dist/analog/public/index.html dist/analog/public/404.html
-
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Deploy to GitHub Pages
-        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0 # Use the official action
+      - uses: k9n-dev/analog-publish-gh-pages@v1.0.0
         with:
-          github_access_token: ${{ secrets.ACCESS_TOKEN }}
-          build_folder: dist/analog/public
-          base_href: /tuqdar/
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          package-manager: bun
+          install-command: bun install
+          build-command: bun run build
