@@ -1,0 +1,1 @@
+import{d as s,m as c,h as o,i}from"./index-HjqQL4lh.js";const t=class t{};t.ɵfac=function(e){return new(e||t)},t.ɵcmp=s({type:t,selectors:[["ng-component"]],decls:1,vars:0,template:function(e,l){e&1&&c(0,"router-outlet")},dependencies:o(t,[i]),encapsulation:2});let a=t;export{a as default};
