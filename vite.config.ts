@@ -5,6 +5,13 @@ import analog, { PrerenderContentFile } from '@analogjs/platform';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: "modern",
+      },
+    },
+  },
   build: {
     target: ['es2020'],
   },
