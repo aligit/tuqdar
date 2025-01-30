@@ -10,8 +10,15 @@
           "builtArea": 100,
           "plotArea": 200,
           "price": 25000000000,
-          "location": "نوشهر",
-          "coverImage": "/images/properties/villa-north-1.jpg",
+          "location": "طوقدار",
+          "coverImage": "/images/1.jpg",
+          "images": [
+            "/images/1.jpg",
+            "/images/3.jpg",
+            "/images/4.jpg",
+            "/images/5.jpg",
+            "/images/properties/villa-north-1/exterior.jpg"
+          ],
           "description": "ویلای مدرن و لوکس با دسترسی مستقیم به ساحل",
           "agent": {
             "name": "علی محمدی",
@@ -25,7 +32,11 @@
           "plotArea": 200,
           "price": 18000000000,
           "location": "رامسر",
-          "coverImage": "/images/properties/villa-north-2.jpg",
+          "coverImage": "/images/south1.jpeg",
+          "images": [
+            "/images/4.jpg",
+            "/images/5.jpg"
+          ],
           "description": "ویلای دوبلکس با چشم‌انداز جنگل",
           "agent": {
             "name": "علی محمدی",

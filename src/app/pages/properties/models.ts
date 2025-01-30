@@ -9,19 +9,21 @@ export type PropertyAttributes = {
   type: string;
 };
 
-export type Property = {
+export interface Property {
   propertyId: string;
   title: string;
-  bedrooms: number;
-  bathrooms: number;
-  landscape: number;
+  bedrooms?: number;
+  bathrooms?: number;
+  landscape?: boolean;
   plotArea: number;
   builtArea: number;
   price: number;
   location: string;
   coverImage: string;
+  images: string[];
   agent?: Agent;
-};
+  description: string;
+}
 
 export type Agent = {
   name: string;

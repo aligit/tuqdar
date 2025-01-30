@@ -7,10 +7,12 @@
 @use "../../app/components/featured-properties/featured-properties" as
   featured-properties;
 @use "../../app/pages/properties/properties" as properties;
+@use "../../app/pages/properties/property-details-theme" as property-details;
 
 @mixin theme($theme) {
   @include header2.theme($theme);
   @include featured-properties.theme($theme);
   @include banner.theme($theme);
   @include properties.theme($theme);
+  @include property-details.theme($theme);
 }
