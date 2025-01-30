@@ -28,18 +28,19 @@ export default defineConfig(({ mode }) => ({
           '/',
           '/about',
           '/contact',
-          {
-            contentDir: 'src/content/properties',
-            transform: (file: PrerenderContentFile) => {
-              // Access 'draft' using bracket notation
-              if (file.attributes['draft']) {
-                return false;
-              }
-              // Use the slug from attributes if defined, otherwise use the file's basename
-              const slug = file.attributes['slug'] || file.name;
-              return `/property/${slug}`;
-            },
-          },
+          // Use only if static
+          // {
+          //   contentDir: 'src/content/properties',
+          //   transform: (file: PrerenderContentFile) => {
+          //     // Access 'draft' using bracket notation
+          //     if (file.attributes['draft']) {
+          //       return false;
+          //     }
+          //     // Use the slug from attributes if defined, otherwise use the file's basename
+          //     const slug = file.attributes['slug'] || file.name;
+          //     return `/property/${slug}`;
+          //   },
+          // },
         ],
         sitemap: {
           host: 'https://aligit.github.io/tuqdar/',
