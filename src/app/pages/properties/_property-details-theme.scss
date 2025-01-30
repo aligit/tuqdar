@@ -1,0 +1,52 @@
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  .property-details {
+    .image-container {
+      background: mat.get-theme-color($theme, surface-container-lowest);
+    }
+
+    .main-image-wrapper, .thumbnail {
+      background: mat.get-theme-color($theme, surface-container-low);
+      border: 1px solid mat.get-theme-color($theme, outline-variant);
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        border-color: mat.get-theme-color($theme, outline);
+        box-shadow:
+          0 2px 4px rgba(mat.get-theme-color($theme, shadow), 0.08),
+          0 4px 8px rgba(mat.get-theme-color($theme, shadow), 0.12);
+      }
+    }
+
+    .see-all-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(mat.get-theme-color($theme, surface-container-highest), 0.7),
+        rgba(mat.get-theme-color($theme, surface-container-highest), 0.9)
+      );
+
+      span {
+        color: mat.get-theme-color($theme, on-surface);
+        background: rgba(mat.get-theme-color($theme, surface-container), 0.8);
+        padding: 8px 16px;
+        border-radius: 24px;
+        backdrop-filter: blur(8px);
+      }
+    }
+  }
+}
+
+@mixin typography($theme) {
+  .property-details {
+    .see-all-overlay span {
+      font: var(--mat-title-small-font);
+      letter-spacing: var(--mat-title-small-letter-spacing);
+    }
+  }
+}
+
+@mixin theme($theme) {
+  @include color($theme);
+  @include typography($theme);
+}

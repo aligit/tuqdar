@@ -35,7 +35,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
                 [src]="property.coverImage"
                 [alt]="property.title"
                 class="main-image"
-                (click)="openGallery(property, 0)"
               />
             </mat-grid-tile>
             <mat-grid-tile colspan="1" rowspan="1">
@@ -44,7 +43,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
                   <div 
                     class="thumbnail" 
                     [class.see-all]="i === 3"
-                    (click)="openGallery(property, i + 1)"
                   >
                     <img [src]="image" [alt]="property.title + ' image ' + i" />
                     @if (i === 3) {
@@ -128,7 +126,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
       .property-details {
         max-width: 1400px;
         margin: 0 auto;
-        padding: 24px;
+        padding: 16px;
       }
 
       .image-gallery {
@@ -140,6 +138,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         height: 100%;
         object-fit: cover;
         border-radius: 8px;
+        cursor: pointer;
       }
 
       .thumbnail-grid {
@@ -155,35 +154,65 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         position: relative;
         width: 100%;
         height: 100%;
+        border-radius: 8px;
         overflow: hidden;
+        cursor: pointer;
 
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          border-radius: 8px;
-          transition: transform 0.3s ease;
-        }
-
-        &:hover img {
-          transform: scale(1.05);
+          transition: all 0.3s ease;
         }
 
         &.see-all {
           .see-all-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 500;
-            border-radius: 8px;
+            background: linear-gradient(
+              rgba(0, 0, 0, 0.3),
+              rgba(0, 0, 0, 0.7)
+            );
+            backdrop-filter: blur(2px);
+            z-index: 1;
+            transition: all 0.3s ease;
+
+            span {
+              color: white;
+              font: var(--mat-title-small-font);
+              background: rgba(255, 255, 255, 0.15);
+              padding: 12px 24px;
+              border-radius: 32px;
+              transform: translateY(0);
+              transition: all 0.3s ease;
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            &:hover {
+              background: linear-gradient(
+                rgba(0, 0, 0, 0.4),
+                rgba(0, 0, 0, 0.8)
+              );
+
+              span {
+                transform: translateY(-2px);
+                background: rgba(255, 255, 255, 0.2);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+              }
+
+              & + img {
+                transform: scale(1.05);
+              }
+            }
+          }
+
+          img {
+            filter: brightness(0.9);
+            transition: all 0.3s ease;
           }
         }
       }
@@ -286,18 +315,7 @@ export default class PropertyDetailsComponent {
     ),
   );
 
-  openGallery(property: Property, startIndex: number): void {
-    this.dialog.open(PropertyImageGalleryComponent, {
-      data: {
-        images: [property.coverImage, ...property.images],
-        startIndex,
-        title: property.title,
-      },
-      panelClass: 'gallery-dialog',
-      maxWidth: '100vw',
-      maxHeight: '100vh',
-      height: '100%',
-      width: '100%',
-    });
+  openImageViewer(property: Property, startIndex: number) {
+
   }
 }
