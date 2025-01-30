@@ -99,8 +99,7 @@ import { MatIconModule } from '@angular/material/icon';
                           mat-button
                           color="primary"
                           [routerLink]="['/properties', property.propertyId]"
-                          >جزئیات بیشتر</a
-                        >
+                        >جزئیات بیشتر</a>
                       </mat-card-actions>
                     </mat-card>
                   }
@@ -241,7 +240,7 @@ export default class PropertiesListComponent {
       next: (response) => {
         this.categories = response.categories;
       },
-      error: (error) => {},
+      error: (error) => { },
     });
   }
   ngAfterViewInit() {
