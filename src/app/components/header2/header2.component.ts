@@ -29,7 +29,7 @@ import { IconComponent } from '../icon/icon.component';
       <div class="logo-container">
         <a routerLink="/">
           <img
-            src="/icons/swans.svg"
+            src="/icons/deenji.svg"
             alt="املاک دو قو Logo"
             class="logo"
             width="48"
