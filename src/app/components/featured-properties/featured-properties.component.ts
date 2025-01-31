@@ -32,7 +32,7 @@ type Property = {
       </div>
       <div class="more-properties-button">
         <a mat-raised-button routerLink="/properties" color="accent"
-          >مشاهده تمام ویلاها</a
+          >مشاهده تمام املاک</a
         >
       </div>
     </section>

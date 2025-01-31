@@ -34,12 +34,12 @@ export default class HomeComponent {
   properties = [
     {
       image: 'https://s100.divarcdn.com/static/photo/neda/post/d_D8umgFAaf-oTTLBY_IJg/43719b03-b03d-4291-b1b9-730855eb98ee.jpg',
-      title: 'ویلا دوبلکس مدرن(  شمالی )',
+      title: 'تکواحدی بازسازی شده تخلیه',
       description: '۵۰۰ متر تا دریا، سکوت و آرامش',
     },
     {
       image: 'https://s100.divarcdn.com/static/photo/neda/post/mZv2sRx2LdlaOQKKe0fePQ/7b7072e4-4fca-460a-a614-27f891d40107.jpg',
-      title: 'ویلا دوبلکس مدرن( جنوبی )',
+      title: '۱۰۳مترسند تک برگ شمالی روبه نما فول',
       description: '۳ اتاق خواب، استخر و پارکینگ',
     },
     {
