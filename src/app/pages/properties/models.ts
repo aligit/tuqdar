@@ -23,6 +23,13 @@ export interface Property {
   images: string[];
   agent?: Agent;
   description: string;
+  propertyInvestmentScore?: number;
+  marketTrendPrediction?: string;
+  similarPropertiesComparison?: string[];
+  propertyHighlightFlags?: string[];
+  neighborhoodFitScore?: number;
+  priceTrend?: number[];
+  rp?: number;
 }
 
 export type Agent = {

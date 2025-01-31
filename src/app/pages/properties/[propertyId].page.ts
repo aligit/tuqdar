@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
-import { PropertyResponse, Property } from './models';
+import { PropertyResponse } from './models';
 import { map, switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -13,11 +13,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { GalleryModule, Gallery, GalleryItem, ImageItem } from 'ng-gallery';
 import { Lightbox, LightboxModule } from 'ng-gallery/lightbox';
-import { provideAnimations } from '@angular/platform-browser/animations';
-
-providers: [
-  provideAnimations(),
-]
+import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   standalone: true,
@@ -32,6 +29,8 @@ providers: [
     MatProgressSpinnerModule,
     LightboxModule,
     GalleryModule,
+    MatChipsModule,
+    MatTooltipModule,
   ],
   template: `
     @if (property$ | async; as property) {
@@ -66,15 +65,30 @@ providers: [
         </div>
 
         <div class="property-content">
-          <mat-card appearance="outlined">
+          <mat-card appearance="outlined" class="main-info-card">
             <mat-card-content>
               <h1>{{ property.title }}</h1>
               <p class="location">
                 <mat-icon>location_on</mat-icon>
                 {{ property.location }}
               </p>
+
               <mat-divider></mat-divider>
 
+              <!-- Property Highlights -->
+              @if (property.propertyHighlightFlags?.length) {
+                <div class="highlights-section">
+                  <h2>ویژگی‌های برجسته</h2>
+                  <div class="highlights-chips">
+                    @for (flag of property.propertyHighlightFlags; track flag) {
+                      <mat-chip-option selected>{{ flag }}</mat-chip-option>
+                    }
+                  </div>
+                </div>
+                <mat-divider></mat-divider>
+              }
+
+              <!-- Property Features -->
               <div class="property-features">
                 <div class="feature">
                   <mat-icon svgIcon="square_foot"></mat-icon>
@@ -84,25 +98,70 @@ providers: [
                   <mat-icon svgIcon="foundation"></mat-icon>
                   <span>{{ property.builtArea }} متر مربع بنا</span>
                 </div>
-                @if (property.bedrooms) {
-                  <div class="feature">
-                    <mat-icon svgIcon="bed"></mat-icon>
-                    <span>{{ property.bedrooms }} خواب</span>
+                @if (property.propertyInvestmentScore) {
+                  <div class="feature score-feature" 
+                       [matTooltip]="'امتیاز سرمایه‌گذاری'">
+                    <mat-icon>trending_up</mat-icon>
+                    <span>{{ property.propertyInvestmentScore }} / 100</span>
                   </div>
                 }
-                @if (property.bathrooms) {
-                  <div class="feature">
-                    <mat-icon svgIcon="bathtub"></mat-icon>
-                    <span>{{ property.bathrooms }} سرویس</span>
+                @if (property.neighborhoodFitScore) {
+                  <div class="feature score-feature" 
+                       [matTooltip]="'امتیاز محله'">
+                    <mat-icon>location_city</mat-icon>
+                    <span>{{ property.neighborhoodFitScore }} / 5</span>
                   </div>
                 }
               </div>
 
               <mat-divider></mat-divider>
 
+              <!-- Market Trends -->
+              @if (property.marketTrendPrediction) {
+                <div class="market-trends">
+                  <h2>تحلیل بازار</h2>
+                  <div class="trend-info">
+                    <div class="trend-item">
+                      <mat-icon [class]="property.marketTrendPrediction.toLowerCase()">
+                        {{ property.marketTrendPrediction === 'Rising' ? 'trending_up' : 'trending_flat' }}
+                      </mat-icon>
+                      <span>{{ property.marketTrendPrediction }}</span>
+                    </div>
+                    @if (property.rp) {
+                      <div class="trend-item">
+                        <mat-icon>analytics</mat-icon>
+                        <span>نسبت قیمت به اجاره: {{ property.rp }}</span>
+                      </div>
+                    }
+                  </div>
+                </div>
+                <mat-divider></mat-divider>
+              }
+
+              <!-- Price Section -->
               <div class="price-section">
                 <h2>قیمت</h2>
-                <p class="price">{{ property.price }} تومان</p>
+                <p class="price">{{ property.price | number }} تومان</p>
+                @if (property.priceTrend?.length) {
+                  <div class="price-trend">
+                    <span class="trend-label">روند قیمت:</span>
+                    <div class="trend-values">
+                      @for (price of property.priceTrend; track price) {
+                        <span>{{ price | number }}</span>
+                        @if (!$last) {
+                          <mat-icon>arrow_forward</mat-icon>
+                        }
+                      }
+                    </div>
+                  </div>
+                }
+              </div>
+
+              <!-- Description -->
+              <mat-divider></mat-divider>
+              <div class="description-section">
+                <h2>توضیحات</h2>
+                <p>{{ property.description }}</p>
               </div>
 
               @if (property.agent) {
@@ -301,6 +360,96 @@ providers: [
         justify-content: center;
         align-items: center;
         height: 400px;
+      }
+
+      .highlights-section {
+        padding: 24px 0;
+
+        h2 {
+          font: var(--mat-title-large-font);
+          margin-bottom: 16px;
+        }
+
+        .highlights-chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+      }
+
+      .market-trends {
+        padding: 24px 0;
+
+        h2 {
+          font: var(--mat-title-large-font);
+          margin-bottom: 16px;
+        }
+
+        .trend-info {
+          display: flex;
+          gap: 24px;
+          flex-wrap: wrap;
+        }
+
+        .trend-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          mat-icon {
+            &.rising {
+              color: var(--mat-success-color);
+            }
+          }
+        }
+      }
+
+      .price-trend {
+        margin-top: 16px;
+        
+        .trend-label {
+          display: block;
+          margin-bottom: 8px;
+          color: var(--mat-text-secondary-color);
+        }
+
+          .trend-values {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+
+            span {
+              font: var(--mat-body-large-font);
+            }
+
+            mat-icon {
+              color: var(--mat-text-secondary-color);
+              font-size: 18px;
+              width: 18px;
+              height: 18px;
+            }
+          }
+      }
+
+      .description-section {
+        padding: 24px 0;
+
+        h2 {
+          font: var(--mat-title-large-font);
+          margin-bottom: 16px;
+        }
+
+        p {
+          line-height: 1.6;
+          color: var(--mat-text-secondary-color);
+        }
+      }
+
+      .score-feature {
+        mat-icon {
+          color: var(--mat-primary-color);
+        }
       }
     `,
   ],
