@@ -1,8 +1,7 @@
 import { Component, Inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { GalleryModule, Gallery, GalleryRef } from 'ng-gallery';
+import { LightboxModule } from 'ng-gallery/lightbox';
 
 interface GalleryData {
   images: string[];
@@ -13,12 +12,36 @@ interface GalleryData {
 @Component({
   selector: 'app-property-image-gallery',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, MatButtonModule, MatIconModule],
-  template: ``,
-  styles: [
-    ``,
-  ],
+  imports: [GalleryModule, LightboxModule, MatDialogModule],
+  template: `
+    <h2 mat-dialog-title>{{ data.title }}</h2>
+    <mat-dialog-content>
+      <gallery [id]="galleryId"></gallery>
+    </mat-dialog-content>
+  `,
 })
 export class PropertyImageGalleryComponent {
+  galleryId = 'property-gallery';
+  galleryRef: GalleryRef;
 
+  constructor(
+    public dialogRef: MatDialogRef<PropertyImageGalleryComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: GalleryData,
+    private gallery: Gallery
+  ) {
+    this.galleryRef = this.gallery.ref(this.galleryId);
+  }
+
+  ngOnInit() {
+    // Create gallery items from the images
+    const items = this.data.images.map(src => ({
+      src: src,
+      thumb: src
+    }));
+
+    this.galleryRef.load(items);
+    if (this.data.startIndex) {
+      this.galleryRef.set(this.data.startIndex);
+    }
+  }
 }
