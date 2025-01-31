@@ -4,7 +4,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
-import { PropertyImageGalleryComponent } from './components/property-image-gallery.component';
 import { HttpClient } from '@angular/common/http';
 import { PropertyResponse, Property } from './models';
 import { map, switchMap } from 'rxjs/operators';
@@ -12,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PropertyImageGalleryComponent } from '../../components/property-image-gallery/property-image-gallery.component';
 
 @Component({
   standalone: true,
@@ -24,6 +24,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatDividerModule,
     MatProgressSpinnerModule,
+    PropertyImageGalleryComponent
   ],
   template: `
     @if (property$ | async; as property) {
@@ -40,8 +41,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
             <mat-grid-tile colspan="1" rowspan="1">
               <div class="thumbnail-grid">
                 @for (image of property.images.slice(0, 4); track image; let i = $index) {
-                  <div 
-                    class="thumbnail" 
+                  <div
+                    class="thumbnail"
                     [class.see-all]="i === 3"
                   >
                     <img [src]="image" [alt]="property.title + ' image ' + i" />

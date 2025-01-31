@@ -2,6 +2,7 @@
 @use "./themes/m3-theme-farsi.scss" as themes;
 @use "./components";
 @use "./sizes";
+@use '@angular/cdk/overlay-prebuilt.css';
 
 @include mat.core();
 // @import "bootstrap/scss/bootstrap";
