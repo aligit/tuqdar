@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { PropertyImageGalleryComponent } from '../../components/property-image-gallery/property-image-gallery.component';
 import { GalleryModule, Gallery, GalleryItem, ImageItem } from 'ng-gallery';
 import { Lightbox, LightboxModule } from 'ng-gallery/lightbox';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -31,7 +30,6 @@ providers: [
     MatCardModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    PropertyImageGalleryComponent,
     LightboxModule,
     GalleryModule,
   ],
