@@ -12,6 +12,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PropertyImageGalleryComponent } from '../../components/property-image-gallery/property-image-gallery.component';
+import { GalleryModule, Gallery, GalleryItem, ImageItem } from 'ng-gallery';
+import { Lightbox, LightboxModule } from 'ng-gallery/lightbox';
+import { provideAnimations } from '@angular/platform-browser/animations';
+
+providers: [
+  provideAnimations(),
+]
 
 @Component({
   standalone: true,
@@ -24,7 +31,9 @@ import { PropertyImageGalleryComponent } from '../../components/property-image-g
     MatCardModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    PropertyImageGalleryComponent
+    PropertyImageGalleryComponent,
+    LightboxModule,
+    GalleryModule,
   ],
   template: `
     @if (property$ | async; as property) {
@@ -45,9 +54,9 @@ import { PropertyImageGalleryComponent } from '../../components/property-image-g
                     class="thumbnail"
                     [class.see-all]="i === 3"
                   >
-                    <img [src]="image" [alt]="property.title + ' image ' + i" />
+                    <img (click)="openInFullScreen(4)" [src]="image" [alt]="property.title + ' image ' + i" />
                     @if (i === 3) {
-                      <div class="see-all-overlay">
+                      <div [lightbox]="i" [gallery]="galleryId" class="see-all-overlay">
                         <span>See all photos</span>
                       </div>
                     }
@@ -299,24 +308,42 @@ import { PropertyImageGalleryComponent } from '../../components/property-image-g
   ],
 })
 export default class PropertyDetailsComponent {
+  propertyImages: string[] = [];
+  galleryId = 'propertyLightbox';
+  items!: GalleryItem[];
+
+  public gallery = inject(Gallery);
   private http = inject(HttpClient);
   private route = inject(ActivatedRoute);
-  private dialog = inject(MatDialog);
+  private lightbox = inject(Lightbox);
 
   property$ = this.route.params.pipe(
     switchMap((params) =>
       this.http.get<PropertyResponse>('/data/property-listings.json').pipe(
         map((response) => {
-          const property = response.categories
-            .flatMap((category) => category.properties)
-            .find((p) => p.propertyId === params['propertyId']);
-          return property;
-        }),
-      ),
-    ),
+          const propertyId = params['propertyId'];
+          return response.categories.find(category =>
+            category.properties.some(property => property.propertyId === propertyId)
+          )?.properties.find(property => property.propertyId === propertyId);
+        })
+      )
+    )
   );
 
-  openImageViewer(property: Property, startIndex: number) {
+  ngOnInit() {
+    this.property$.subscribe(property => {
+      if (property) {
+        this.propertyImages = property.images;
+        this.items = this.propertyImages.map(image => new ImageItem({ src: image, thumb: image }));
+        const galleryRef = this.gallery.ref(this.galleryId);
+        galleryRef.load(this.items);
+      }
+    });
+  }
 
+  openInFullScreen(index: number) {
+    this.lightbox.open(index, this.galleryId, {
+      panelClass: 'fullscreen'
+    });
   }
 }
