@@ -23,7 +23,26 @@
           "agent": {
             "name": "علی محمدی",
             "avatar": "path/to/avatar.jpg"
-          }
+          },
+
+  "propertyInvestmentScore": 21,
+  "marketTrendPrediction": "Rising",
+  "similarPropertiesComparison": [
+    "QZu364zo",
+    "QZxrO5ey",
+    "QZ6eG2Ke"
+  ],
+  "propertyHighlightFlags": [
+    "Great View",
+    "Close to Metro"
+  ],
+  "neighborhoodFitScore": 2.9,
+  "priceTrend": [
+    801207550,
+    844413177,
+    870000000
+  ],
+  "rp": 3.1
         },
         {
           "propertyId": "villa-north-2",
