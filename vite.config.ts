@@ -42,9 +42,9 @@ export default defineConfig(({ mode }) => ({
           //   },
           // },
         ],
-        // sitemap: {
-        //   host: 'https://aligit.github.io/tuqdar/',
-        // },
+        sitemap: {
+          host: 'https://deenji.ir/',
+        },
         postRenderingHooks: [
           async (route) => {
             // Add custom analytics script or other post-rendering modifications

@@ -35,7 +35,7 @@ import { IconComponent } from '../icon/icon.component';
             width="48"
             height="48"
           />
-          <span class="logo-text">املاک دو قو</span>
+          <span class="logo-text">املاک دینجی</span>
         </a>
       </div>
       <span class="spacer"></span>
