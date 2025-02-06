@@ -21,6 +21,7 @@ export interface Property {
   location: string;
   coverImage: string;
   images: string[];
+  videoUrl?: string;
   agent?: Agent;
   description: string;
   propertyInvestmentScore?: number;

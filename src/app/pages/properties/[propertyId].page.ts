@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -186,6 +187,23 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                   </div>
                 </div>
               }
+
+                          @if (property.videoUrl) {
+                            <mat-divider></mat-divider>
+                            <div class="video-section">
+                              <div class="section-header">
+                                <mat-icon>videocam</mat-icon>
+                                <h2>ویدیوی ملک</h2>
+                              </div>
+                              <div class="video-container">
+                                <iframe
+                                  [src]="getVideoUrl(property.videoUrl)"
+                                  frameborder="0"
+                                  allowfullscreen
+                                ></iframe>
+                              </div>
+                            </div>
+                          }
             </mat-card-content>
           </mat-card>
         </div>
@@ -488,15 +506,53 @@ import { MatTooltipModule } from '@angular/material/tooltip';
           color: var(--mat-primary-color);
         }
       }
+
+      .video-section {
+        padding: 24px 0;
+
+        .section-header {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 16px;
+
+          mat-icon {
+            color: var(--mat-text-secondary-color);
+          }
+
+          h2 {
+            font: var(--mat-title-large-font);
+            margin: 0;
+          }
+        }
+
+        .video-container {
+          position: relative;
+          padding-bottom: 56.25%; /* 16:9 aspect ratio */
+          height: 0;
+          overflow: hidden;
+          border-radius: 8px;
+
+          iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
     `,
   ],
 })
 export default class PropertyDetailsComponent {
+
   propertyImages: string[] = [];
   readonly galleryId = 'propertyGallery';
   items: GalleryItem[] = [];
 
   public gallery = inject(Gallery);
+  private sanitizer = inject(DomSanitizer)
   private http = inject(HttpClient);
   private route = inject(ActivatedRoute);
   private lightbox = inject(Lightbox);
@@ -550,5 +606,11 @@ export default class PropertyDetailsComponent {
         });
       }
     }
+  }
+  getVideoUrl(url: string) {
+    // Convert regular Aparat URL to embed URL
+    const videoId = url.split('/').pop();
+    const embedUrl = `https://www.aparat.com/video/video/embed/videohash/${videoId}/vt/frame`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 }
