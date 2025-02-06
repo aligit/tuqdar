@@ -54,7 +54,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                     <img (click)="openInFullScreen(4)" [src]="image" [alt]="property.title + ' image ' + i" />
                     @if (i === 3) {
                       <div [lightbox]="i" [gallery]="galleryId" class="see-all-overlay">
-                        <span>See all photos</span>
+                        <span>سایر تصاویر</span>
                       </div>
                     }
                   </div>
@@ -67,9 +67,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         <div class="property-content">
           <mat-card appearance="outlined" class="main-info-card">
             <mat-card-content>
-              <h1>{{ property.title }}</h1>
+                              <div class="title-container">
+                                <mat-icon svgIcon="subject"/>
+                                <h1>{{ property.title }}</h1>
+                              </div>
               <p class="location">
-                <mat-icon>location_on</mat-icon>
+                <mat-icon svgIcon="location_on"/>
                 {{ property.location }}
               </p>
 
@@ -99,14 +102,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                   <span>{{ property.builtArea }} متر مربع بنا</span>
                 </div>
                 @if (property.propertyInvestmentScore) {
-                  <div class="feature score-feature" 
+                  <div class="feature score-feature"
                        [matTooltip]="'امتیاز سرمایه‌گذاری'">
                     <mat-icon>trending_up</mat-icon>
                     <span>{{ property.propertyInvestmentScore }} / 100</span>
                   </div>
                 }
                 @if (property.neighborhoodFitScore) {
-                  <div class="feature score-feature" 
+                  <div class="feature score-feature"
                        [matTooltip]="'امتیاز محله'">
                     <mat-icon>location_city</mat-icon>
                     <span>{{ property.neighborhoodFitScore }} / 5</span>
@@ -140,8 +143,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
               <!-- Price Section -->
               <div class="price-section">
-                <h2>قیمت</h2>
-                <p class="price">{{ property.price | number }} تومان</p>
+                  <div class="section-header">
+                    <mat-icon svgIcon="payments"/>
+                    <p class="price">{{ property.price  }} تومان</p>
+                  </div>
                 @if (property.priceTrend?.length) {
                   <div class="price-trend">
                     <span class="trend-label">روند قیمت:</span>
@@ -160,7 +165,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
               <!-- Description -->
               <mat-divider></mat-divider>
               <div class="description-section">
-                <h2>توضیحات</h2>
+                <div class="section-header">
+                  <mat-icon svgIcon="description"/>
+                </div>
                 <p>{{ property.description }}</p>
               </div>
 
@@ -288,9 +295,20 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         max-width: 800px;
         margin: 0 auto;
 
-        h1 {
-          font: var(--mat-headline-large-font);
+        .title-container {
+          display: flex;
+          align-items: center;
+          gap: 8px;
           margin-bottom: 16px;
+
+          mat-icon {
+            color: var(--mat-text-secondary-color);
+          }
+
+          h1 {
+            font: var(--mat-headline-large-font);
+            margin: 0;
+          }
         }
 
         .location {
@@ -321,14 +339,21 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         .price-section {
           padding: 24px 0;
 
-          h2 {
-            font: var(--mat-title-large-font);
-            margin-bottom: 8px;
-          }
+          .section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
 
-          .price {
-            font: var(--mat-headline-medium-font);
-            color: var(--mat-primary-color);
+            mat-icon {
+              color: var(--mat-text-secondary-color);
+            }
+
+            .price {
+              font: var(--mat-headline-medium-font);
+              color: var(--mat-primary-color);
+              margin: 0;
+            }
           }
         }
 
@@ -406,7 +431,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
       .price-trend {
         margin-top: 16px;
-        
+
         .trend-label {
           display: block;
           margin-bottom: 8px;
@@ -435,9 +460,20 @@ import { MatTooltipModule } from '@angular/material/tooltip';
       .description-section {
         padding: 24px 0;
 
-        h2 {
-          font: var(--mat-title-large-font);
+        .section-header {
+          display: flex;
+          align-items: center;
+          gap: 8px;
           margin-bottom: 16px;
+
+          mat-icon {
+            color: var(--mat-text-secondary-color);
+          }
+
+          h2 {
+            font: var(--mat-title-large-font);
+            margin: 0;
+          }
         }
 
         p {

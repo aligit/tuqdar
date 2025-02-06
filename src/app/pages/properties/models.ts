@@ -15,9 +15,9 @@ export interface Property {
   bedrooms?: number;
   bathrooms?: number;
   landscape?: boolean;
-  plotArea: number;
-  builtArea: number;
-  price: number;
+  plotArea: string;
+  builtArea: string;
+  price: string;
   location: string;
   coverImage: string;
   images: string[];

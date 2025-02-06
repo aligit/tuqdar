@@ -7,22 +7,21 @@
         {
           "propertyId": "v-golha-jonubi",
           "title": "ویلای لوکس ساحلی نوشهر",
-          "builtArea": 150,
-          "plotArea": 250,
-          "price": 3500000000,
+          "builtArea": "۱۵۰",
+          "plotArea": "۲۵۰",
+          "price": "سه و نیم میلیارد",
           "location": "طوقدار",
-          "coverImage": "/images/golha-shomali/landscape.JPEG",
+          "coverImage": "/images/golha-jonubi/landscape.jpg",
           "images": [
-            "/images/golha-jonubi/landscape.jpg",
-            "/images/golha-jonubi/3.jpg",
-            "/images/golha-jonubi/4.jpg",
-            "/images/golha-jonubi/5.jpg"
+            "/images/golha-jonubi/living-room.jpg",
+            "/images/golha-jonubi/living-room-2.jpg",
+            "/images/golha-jonubi/kitchen.jpg",
+            "/images/golha-jonubi/backyard-garden.jpg",
+            "/images/golha-jonubi/pool.jpg",
+            "/images/golha-jonubi/master-room-1.jpg",
+            "/images/golha-jonubi/master-room-2.jpg"
           ],
-          "description": "ویلای مدرن و لوکس با دسترسی مستقیم به ساحل",
-          "agent": {
-            "name": "علی محمدی",
-            "avatar": "path/to/avatar.jpg"
-          }
+          "description": "ویلای مدرن و لوکس با دسترسی مستقیم به ساحل"
         },
         {"propertyId": "v-golha-shomali",
           "title": "ویلای لوکس ساحلی نوشهر",
