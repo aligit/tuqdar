@@ -18,7 +18,7 @@ interface Property {
       <h2>{{ title }}</h2>
       <div class="properties-grid">
         @for (property of properties; track property) {
-          <div class="property-card">
+          <div class="property-card" [routerLink]="['/properties', property.id]" style="cursor: pointer;">
             <img
               [src]="property.image"
               [alt]="property.title"
