@@ -42,6 +42,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                 [src]="property.coverImage"
                 [alt]="property.title"
                 class="main-image"
+              (click)="openInFullScreen(0)"
               />
             </mat-grid-tile>
             <mat-grid-tile colspan="1" rowspan="1">
@@ -51,7 +52,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                     class="thumbnail"
                     [class.see-all]="i === 3"
                   >
-                    <img (click)="openInFullScreen(4)" [src]="image" [alt]="property.title + ' image ' + i" />
+                    <img (click)="openInFullScreen(i + 1)" [src]="image" [alt]="property.title + ' image ' + i" />
                     @if (i === 3) {
                       <div [lightbox]="i" [gallery]="galleryId" class="see-all-overlay">
                         <span>سایر تصاویر</span>
@@ -516,7 +517,8 @@ export default class PropertyDetailsComponent {
   ngOnInit() {
     this.property$.subscribe(property => {
       if (property) {
-        this.propertyImages = property.images;
+        // Include cover image in the gallery items
+        this.propertyImages = [property.coverImage, ...property.images];
         this.items = this.propertyImages.map(image => new ImageItem({ src: image, thumb: image }));
         const galleryRef = this.gallery.ref(this.galleryId);
         galleryRef.load(this.items);

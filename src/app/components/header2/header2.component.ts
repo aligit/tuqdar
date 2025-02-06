@@ -44,11 +44,11 @@ import { IconComponent } from '../icon/icon.component';
           <a mat-button routerLink="/property/toghdar" class="menu-item"
             >املاک</a
           >
-          <a mat-button routerLink="/about" class="menu-item">درباره ما</a>
-          <a mat-button routerLink="/contact" class="menu-item">اطلاعات تماس</a>
+<!--          <a mat-button routerLink="/about" class="menu-item">درباره ما</a>    -->
+<!--         <a mat-button routerLink="/contact" class="menu-item">اطلاعات تماس</a> -->
         </div>
         <button mat-raised-button color="accent" class="cta-button">
-          درخواست بازدید
+          ۰۹۱۲۰۶۸۴۵۳۹
         </button>
       }
     </mat-toolbar>
