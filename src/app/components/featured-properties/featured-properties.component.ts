@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterOutlet, RouterLink } from '@angular/router';
 
-type Property = {
+interface Property {
+  id: string;
   image: string;
   title: string;
   description: string;

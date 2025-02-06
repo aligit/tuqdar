@@ -5,11 +5,11 @@
       "name": "ویلا",
       "properties": [
         {
-          "propertyId": "villa-north-1",
+          "propertyId": "v-golha-jonubi",
           "title": "ویلای لوکس ساحلی نوشهر",
-          "builtArea": 100,
-          "plotArea": 200,
-          "price": 25000000000,
+          "builtArea": 150,
+          "plotArea": 250,
+          "price": 3500000000,
           "location": "طوقدار",
           "coverImage": "/images/1.jpg",
           "images": [

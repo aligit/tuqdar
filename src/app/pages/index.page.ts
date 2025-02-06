@@ -31,24 +31,27 @@ import { FeaturedPropertiesComponent } from '../components/featured-properties/f
   `,
 })
 export default class HomeComponent {
-  //Make sure to replace images with better alternatives
   properties = [
     {
-      image: '/images/3.jpg',
-      title: 'ویلا دوبلکس مدرن(  شمالی )',
-      description: '۵۰۰ متر تا دریا، سکوت و آرامش',
-    },
-    {
-      image: '/images/1.jpeg',
+      id: 'v-golha-jonubi',
+      image: '/images/golha-jonubi/landscape.jpg',
       title: 'ویلا دوبلکس مدرن( جنوبی )',
       description: '۳ اتاق خواب، استخر و پارکینگ',
     },
     {
-      image: '/images/pamchal/3.JPEG',
+      id: 'v-golha-shomali',
+      image: '/images/golha-shomali/landscape.JPEG',
+      title: 'ویلا دوبلکس مدرن(  شمالی )',
+      description: '۵۰۰ متر تا دریا، سکوت و آرامش',
+    },
+    {
+      id: 'v-toranj-2bar',
+      image: '/images/toranj-2bar/landscape.JPEG',
       title: 'فلت مدرن  ۱۶۰ متری',
       description: 'دنج و با صفا و آرام ده دقیقه تا ساحل، فرنیش کامل',
     },
     {
+      id: 'v-shirinbol',
       image: '/images/shirinbol/4.jpg',
       title: 'ویلا باغ لوکس',
       description: 'شیک، دنج، سرسبز، خلوت و آرام',
