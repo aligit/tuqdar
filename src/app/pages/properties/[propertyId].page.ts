@@ -54,7 +54,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                   >
                     <img (click)="openInFullScreen(i + 1)" [src]="image" [alt]="property.title + ' image ' + i" />
                     @if (i === 3) {
-                      <div [lightbox]="i" [gallery]="galleryId" class="see-all-overlay">
+                      <div class="see-all-overlay" (click)="openInFullScreen(3)">
                         <span>سایر تصاویر</span>
                       </div>
                     }
@@ -493,8 +493,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export default class PropertyDetailsComponent {
   propertyImages: string[] = [];
-  galleryId = 'propertyLightbox';
-  items!: GalleryItem[];
+  readonly galleryId = 'propertyGallery';
+  items: GalleryItem[] = [];
 
   public gallery = inject(Gallery);
   private http = inject(HttpClient);
@@ -514,21 +514,41 @@ export default class PropertyDetailsComponent {
     )
   );
 
+  private galleryRef: any;
+
   ngOnInit() {
     this.property$.subscribe(property => {
       if (property) {
         // Include cover image in the gallery items
         this.propertyImages = [property.coverImage, ...property.images];
         this.items = this.propertyImages.map(image => new ImageItem({ src: image, thumb: image }));
-        const galleryRef = this.gallery.ref(this.galleryId);
-        galleryRef.load(this.items);
+
+        // Initialize gallery with config
+        this.galleryRef = this.gallery.ref(this.galleryId);
+        this.galleryRef.setConfig({
+          thumbPosition: 'bottom',
+          imageSize: 'contain',
+          counter: true,
+          loadingStrategy: 'preload'
+        });
+        this.galleryRef.load(this.items);
       }
     });
   }
 
   openInFullScreen(index: number) {
-    this.lightbox.open(index, this.galleryId, {
-      panelClass: 'fullscreen'
-    });
+    if (this.items && this.items.length > 0) {
+      // For "see all" button
+      if (index === 3 && this.items.length > 4) {
+        this.lightbox.open(3, this.galleryId, {
+          panelClass: 'fullscreen'
+        });
+      } else {
+        // For individual image clicks
+        this.lightbox.open(index, this.galleryId, {
+          panelClass: 'fullscreen'
+        });
+      }
+    }
   }
 }
