@@ -11,6 +11,25 @@
           "plotArea": 250,
           "price": 3500000000,
           "location": "طوقدار",
+          "coverImage": "/images/golha-shomali/landscape.JPEG",
+          "images": [
+            "/images/golha-jonubi/landscape.jpg",
+            "/images/golha-jonubi/3.jpg",
+            "/images/golha-jonubi/4.jpg",
+            "/images/golha-jonubi/5.jpg"
+          ],
+          "description": "ویلای مدرن و لوکس با دسترسی مستقیم به ساحل",
+          "agent": {
+            "name": "علی محمدی",
+            "avatar": "path/to/avatar.jpg"
+          }
+        },
+        {"propertyId": "v-golha-shomali",
+          "title": "ویلای لوکس ساحلی نوشهر",
+          "builtArea": 150,
+          "plotArea": 250,
+          "price": 3500000000,
+          "location": "طوقدار",
           "coverImage": "/images/1.jpg",
           "images": [
             "/images/1.jpg",
@@ -23,28 +42,9 @@
           "agent": {
             "name": "علی محمدی",
             "avatar": "path/to/avatar.jpg"
-          }
-        },
+          }},
         {
-          "propertyId": "villa-north-2",
-          "title": "ویلای جنگلی رامسر",
-          "builtArea": 100,
-          "plotArea": 200,
-          "price": 18000000000,
-          "location": "رامسر",
-          "coverImage": "/images/south1.jpeg",
-          "images": [
-            "/images/4.jpg",
-            "/images/5.jpg"
-          ],
-          "description": "ویلای دوبلکس با چشم‌انداز جنگل",
-          "agent": {
-            "name": "علی محمدی",
-            "avatar": "path/to/avatar.jpg"
-          }
-        },
-        {
-          "propertyId": "villa-north-3",
+          "propertyId": "v-toranj-2bar",
           "title": "ویلای مدرن محمودآباد",
           "builtArea": 100,
           "plotArea": 200,
@@ -58,7 +58,7 @@
           }
         },
         {
-          "propertyId": "villa-north-4",
+          "propertyId": "v-shirinbol",
           "title": "ویلای استخردار چالوس",
           "builtArea": 100,
           "plotArea": 200,
