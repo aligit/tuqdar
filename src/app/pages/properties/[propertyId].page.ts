@@ -103,6 +103,66 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                   <mat-icon svgIcon="foundation"></mat-icon>
                   <span>{{ property.builtArea }} متر مربع بنا</span>
                 </div>
+                <div class="feature">
+                  <mat-icon>meeting_room</mat-icon>
+                  <span>{{ property.numberOfRooms }} اتاق</span>
+                </div>
+                <div class="feature">
+                  <mat-icon>calendar_today</mat-icon>
+                  <span>ساخت {{ property.yearBuilt }}</span>
+                </div>
+                @if (property.totalFloors && property.totalFloors > 0 ) {
+                  <div class="feature">
+                    <mat-icon svgIcon="layers"/>
+                    <span> {{ property.totalFloors }} </span>
+                  </div>
+                }
+              </div>
+
+              <!-- Additional Features -->
+              <div class="additional-features">
+                <h2>امکانات و مشخصات</h2>
+                <div class="features-grid">
+                  <div class="feature-item">
+                    <mat-icon svgIcon="directions_car"/>
+                    <span>پارکینگ: {{ property.hasParking ? 'دارد' : 'ندارد' }}</span>
+                  </div>
+                  <div class="feature-item">
+                    <mat-icon svgIcon="warehouse"/>
+                    <span>انباری: {{ property.hasCellar ? 'دارد' : 'ندارد' }}</span>
+                  </div>
+                  <div class="feature-item">
+                    <mat-icon svgIcon="balcony"/>
+                    <span>بالکن: {{ property.hasBalcony ? 'دارد' : 'ندارد' }}</span>
+                  </div>
+                  <div class="feature-item">
+                    <mat-icon svgIcon="grid_view"/>
+                    <span>کف‌پوش: {{ property.floorMaterial }}</span>
+                  </div>
+                  <div class="feature-item">
+                    <mat-icon svgIcon="wc"/>
+                    <span>سرویس بهداشتی: {{ property.toiletType }}</span>
+                  </div>
+                  <div class="feature-item">
+                    <mat-icon>ac_unit</mat-icon>
+                    <span>سیستم سرمایش: {{ property.coolingSystem }}</span>
+                  </div>
+                  <div class="feature-item">
+                    <mat-icon svgIcon="local_fire_department"/>
+                    <span>سیستم گرمایش: {{ property.heatingSystem }}</span>
+                  </div>
+                  <div class="feature-item">
+                    <mat-icon svgIcon="water_drop"/>
+                    <span>آبگرمکن: {{ property.hasWaterHeater ? 'دارد' : 'ندارد' }}</span>
+                  </div>
+                  <div class="feature-item">
+                    <mat-icon svgIcon="description"/>
+                    <span>سند: {{ property.propertyTitle }}</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Property Features -->
+              <div class="property-features">
                 @if (property.propertyInvestmentScore) {
                   <div class="feature score-feature"
                        [matTooltip]="'امتیاز سرمایه‌گذاری'">
@@ -156,7 +216,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                       @for (price of property.priceTrend; track price) {
                         <span>{{ price | number }}</span>
                         @if (!$last) {
-                          <mat-icon>arrow_forward</mat-icon>
+                          <mat-icon svgIcon="arrow_forward"/>
                         }
                       }
                     </div>
@@ -192,7 +252,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                             <mat-divider></mat-divider>
                             <div class="video-section">
                               <div class="section-header">
-                                <mat-icon>videocam</mat-icon>
+                                <mat-icon svgIcon="videocam"/>
                                 <h2>ویدیوی ملک</h2>
                               </div>
                               <div class="video-container">

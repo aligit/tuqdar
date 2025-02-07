@@ -25,7 +25,19 @@
             "/images/golha-jonubi/room-2-2.jpg",
             "/images/golha-jonubi/room-3.jpg"
           ],
-          "description": "ویلای مدرن و لوکس با دسترسی مستقیم به ساحل"
+          "description": "ویلای مدرن و لوکس با دسترسی مستقیم به ساحل",
+          "numberOfRooms": "۳",
+          "yearBuilt": "۱۴۰۱",
+          "hasParking": true,
+          "hasCellar": true,
+          "hasBalcony": true,
+          "floorMaterial": "سرامیک",
+          "toiletType": "ایرانی و خارجی",
+          "coolingSystem": "ندارد",
+          "heatingSystem": "ندارد",
+          "hasWaterHeater": false,
+          "propertyTitle": "مبایعه‌نامه",
+          "totalFloors": 2
         },
         {"propertyId": "v-golha-shomali",
           "title": "ویلای لوکس ساحلی نوشهر",

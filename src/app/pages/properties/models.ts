@@ -9,6 +9,11 @@ export type PropertyAttributes = {
   type: string;
 };
 
+export type FloorMaterial = 'سرامیک' | 'پارکت چوب' | 'پارکت لمینت' | 'سنگ' | 'موکت' | 'موزائیک';
+export type ToiletType = 'ایرانی' | 'خارجی' | 'ایرانی و خارجی';
+export type CoolingSystem = 'کولر آبی' | 'کولر گازی' | 'داکت اسپلیت' | 'اسپلیت' | 'فن کوئل' | 'ندارد';
+export type HeatingSystem = 'بخاری' | 'شوفاژ' | 'فن کوئل' | 'از کف' | 'داکت اسپلیت' | 'اسپلیت' | 'شومینه' | 'ندارد';
+
 export interface Property {
   propertyId: string;
   title: string;
@@ -31,6 +36,18 @@ export interface Property {
   neighborhoodFitScore?: number;
   priceTrend?: number[];
   rp?: number;
+  numberOfRooms?: string;
+  yearBuilt?: string;
+  hasParking?: boolean;
+  hasCellar?: boolean;
+  hasBalcony?: boolean;
+  floorMaterial?: FloorMaterial;
+  toiletType?: ToiletType;
+  coolingSystem?: CoolingSystem;
+  heatingSystem?: HeatingSystem;
+  hasWaterHeater?: boolean;
+  propertyTitle?: string;
+  totalFloors?: number;
 }
 
 export type Agent = {
