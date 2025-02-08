@@ -104,11 +104,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                   <span>{{ property.builtArea }} متر مربع بنا</span>
                 </div>
                 <div class="feature">
-                  <mat-icon>meeting_room</mat-icon>
+                  <mat-icon svgIcon="meeting_room"/>
                   <span>{{ property.numberOfRooms }} اتاق</span>
                 </div>
                 <div class="feature">
-                  <mat-icon>calendar_today</mat-icon>
+                  <mat-icon svgIcon="calendar_today"/>
                   <span>ساخت {{ property.yearBuilt }}</span>
                 </div>
                 @if (property.totalFloors && property.totalFloors > 0 ) {
@@ -124,16 +124,16 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                 <h2>امکانات و مشخصات</h2>
                 <div class="features-grid">
                   <div class="feature-item">
-                    <mat-icon svgIcon="directions_car"/>
-                    <span>پارکینگ: {{ property.hasParking ? 'دارد' : 'ندارد' }}</span>
+                    <mat-icon svgIcon="directions_car" [class.has-feature]="property.hasParking"/>
+                    <span>پارکینگ: <mat-icon [svgIcon]="property.hasParking ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
-                    <mat-icon svgIcon="warehouse"/>
-                    <span>انباری: {{ property.hasCellar ? 'دارد' : 'ندارد' }}</span>
+                    <mat-icon svgIcon="warehouse"  [class.has-feature]="property.hasCellar"/>
+                    <span>انباری: <mat-icon [svgIcon]="property.hasCellar ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
-                    <mat-icon svgIcon="balcony"/>
-                    <span>بالکن: {{ property.hasBalcony ? 'دارد' : 'ندارد' }}</span>
+                    <mat-icon svgIcon="balcony"  [class.has-feature]="property.hasBalcony"/>
+                    <span>بالکن: <mat-icon [svgIcon]="property.hasBalcony ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="grid_view"/>
@@ -144,16 +144,16 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                     <span>سرویس بهداشتی: {{ property.toiletType }}</span>
                   </div>
                   <div class="feature-item">
-                    <mat-icon>ac_unit</mat-icon>
-                    <span>سیستم سرمایش: {{ property.coolingSystem }}</span>
+                    <mat-icon svgIcon="ac_unit"/>
+                    <span>سیستم سرمایش: <mat-icon [svgIcon]="property.coolingSystem ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="local_fire_department"/>
-                    <span>سیستم گرمایش: {{ property.heatingSystem }}</span>
+                    <span>سیستم گرمایش: <mat-icon [svgIcon]="property.heatingSystem ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="water_drop"/>
-                    <span>آبگرمکن: {{ property.hasWaterHeater ? 'دارد' : 'ندارد' }}</span>
+                    <span>آبگرمکن: <mat-icon [svgIcon]="property.hasWaterHeater ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="description"/>
