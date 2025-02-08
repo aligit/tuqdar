@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { MatSidenav } from '@angular/material/sidenav';
 import { IconComponent } from '../icon/icon.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header2',
@@ -41,11 +42,11 @@ import { IconComponent } from '../icon/icon.component';
       <span class="spacer"></span>
       @if (!(isHandset$ | async)) {
         <div class="menu-container">
-          <a mat-button routerLink="/property/toghdar" class="menu-item"
+          <a mat-button routerLink="/properties" class="menu-item"
             >املاک</a
           >
 <!--          <a mat-button routerLink="/about" class="menu-item">درباره ما</a>    -->
-<!--         <a mat-button routerLink="/contact" class="menu-item">اطلاعات تماس</a> -->
+         <a mat-button routerLink="/about" class="menu-item">تماس</a>
         </div>
         <button mat-raised-button color="accent" class="cta-button" (click)="revealPhone()">
           {{ isPhoneRevealed ? '۰۹۱۲۰۶۸۴۵۳۹' : 'نمایش شماره تماس' }}
@@ -172,6 +173,7 @@ import { IconComponent } from '../icon/icon.component';
     MatIconModule,
     AsyncPipe,
     IconComponent,
+    RouterLink,
   ],
 })
 export class Header2Component {
