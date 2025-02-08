@@ -125,15 +125,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                 <div class="features-grid">
                   <div class="feature-item">
                     <mat-icon svgIcon="directions_car" [class.has-feature]="property.hasParking"/>
-                    <span>پارکینگ: <mat-icon [svgIcon]="property.hasParking ? 'check_circle' : 'cancel'"></mat-icon></span>
+                    <span>پارکینگ <mat-icon [svgIcon]="property.hasParking ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="warehouse"  [class.has-feature]="property.hasCellar"/>
-                    <span>انباری: <mat-icon [svgIcon]="property.hasCellar ? 'check_circle' : 'cancel'"></mat-icon></span>
+                    <span>انباری <mat-icon [svgIcon]="property.hasCellar ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="balcony"  [class.has-feature]="property.hasBalcony"/>
-                    <span>بالکن: <mat-icon [svgIcon]="property.hasBalcony ? 'check_circle' : 'cancel'"></mat-icon></span>
+                    <span>بالکن <mat-icon [svgIcon]="property.hasBalcony ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="grid_view"/>
@@ -141,19 +141,19 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="wc"/>
-                    <span>سرویس بهداشتی: {{ property.toiletType }}</span>
+                    <span>سرویس بهداشتی {{ property.toiletType }}</span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="ac_unit"/>
-                    <span>سیستم سرمایش: <mat-icon [svgIcon]="property.coolingSystem ? 'check_circle' : 'cancel'"></mat-icon></span>
+                    <span>سیستم سرمایش <mat-icon [svgIcon]="property.coolingSystem ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="local_fire_department"/>
-                    <span>سیستم گرمایش: <mat-icon [svgIcon]="property.heatingSystem ? 'check_circle' : 'cancel'"></mat-icon></span>
+                    <span>سیستم گرمایش <mat-icon [svgIcon]="property.heatingSystem ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="water_drop"/>
-                    <span>آبگرمکن: <mat-icon [svgIcon]="property.hasWaterHeater ? 'check_circle' : 'cancel'"></mat-icon></span>
+                    <span>آبگرمکن <mat-icon [svgIcon]="property.hasWaterHeater ? 'check_circle' : 'cancel'"></mat-icon></span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="description"/>
@@ -602,6 +602,58 @@ import { MatTooltipModule } from '@angular/material/tooltip';
           }
         }
       }
+    .additional-features {
+      padding: 24px 0;
+
+      h2 {
+        font: var(--mat-title-large-font);
+        margin-bottom: 16px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        background: var(--mat-surface-container-lowest);
+        border-radius: 8px;
+
+        mat-icon {
+          margin-right: 12px;
+          color: var(--mat-text-secondary-color);
+
+          &.has-feature {
+            color: var(--mat-primary-color);
+          }
+        }
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          margin-left: auto;
+
+          mat-icon {
+            margin-right: 0;
+            margin-left: 4px;
+
+            &[svgIcon="check_circle"] {
+              color: var(--mat-success-color);
+            }
+
+            &[svgIcon="cancel"] {
+              color: var(--mat-error-color);
+            }
+          }
+        }
+      }
+    }
+
     `,
   ],
 })
