@@ -147,15 +147,33 @@ import { PersianNumberPipe } from '../../shared/pipes/persian-number.pipe';
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="ac_unit"/>
-                    <span>سیستم سرمایش <mat-icon [svgIcon]="property.coolingSystem ? 'check_circle' : 'cancel'"></mat-icon></span>
+                    <span>سیستم سرمایش
+                      @if (property.coolingSystem === 'ندارد' || !property.coolingSystem) {
+                        <mat-icon svgIcon="cancel"></mat-icon>
+                      } @else {
+                        {{ property.coolingSystem }}
+                      }
+                    </span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="local_fire_department"/>
-                    <span>سیستم گرمایش <mat-icon [svgIcon]="property.heatingSystem ? 'check_circle' : 'cancel'"></mat-icon></span>
+                    <span>سیستم گرمایش
+                      @if (property.heatingSystem === 'ندارد' || !property.heatingSystem){
+                        <mat-icon svgIcon="cancel"/>
+                    } @else {
+                      {{property.heatingSystem}}
+                      }
+                      </span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="water_drop"/>
-                    <span>آبگرمکن <mat-icon [svgIcon]="property.hasWaterHeater ? 'check_circle' : 'cancel'"></mat-icon></span>
+                    <span>آبگرمکن
+                      @if(property.waterHeaterSystem === 'ندارد' || !property.waterHeaterSystem){
+                        <mat-icon svgIcon="cancel" />
+                    }@else{
+                        {{property.waterHeaterSystem}}
+                      }
+                   </span>
                   </div>
                   <div class="feature-item">
                     <mat-icon svgIcon="description"/>

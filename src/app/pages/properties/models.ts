@@ -13,6 +13,7 @@ export type FloorMaterial = 'سرامیک' | 'پارکت چوب' | 'پارکت �
 export type ToiletType = 'ایرانی' | 'خارجی' | 'ایرانی و خارجی';
 export type CoolingSystem = 'کولر آبی' | 'کولر گازی' | 'داکت اسپلیت' | 'اسپلیت' | 'فن کوئل' | 'ندارد';
 export type HeatingSystem = 'بخاری' | 'شوفاژ' | 'فن کوئل' | 'از کف' | 'داکت اسپلیت' | 'اسپلیت' | 'شومینه' | 'ندارد';
+export type WaterHeaterSystem = 'آبگرم‌کن' | 'موتورخانه' | 'پکیج' | 'ندارد';
 
 export interface Property {
   propertyId: string;
@@ -45,7 +46,7 @@ export interface Property {
   toiletType?: ToiletType;
   coolingSystem?: CoolingSystem;
   heatingSystem?: HeatingSystem;
-  hasWaterHeater?: boolean;
+  waterHeaterSystem?: WaterHeaterSystem;
   propertyTitle?: string;
   totalFloors?: number;
 }

@@ -6,7 +6,7 @@
       "properties": [
         {
           "propertyId": "v-golha-jonubi",
-          "title": "ویلای لوکس ساحلی نوشهر",
+          "title": "مدرن ویلای دلباز نزدیک ساحل (جنوبی)",
           "builtArea": "۱۵۰",
           "plotArea": "۲۵۰",
           "price": "سه و نیم میلیارد",
@@ -35,13 +35,13 @@
           "toiletType": "ایرانی و خارجی",
           "coolingSystem": "ندارد",
           "heatingSystem": "ندارد",
-          "hasWaterHeater": false,
+          "waterHeaterSystem": "ندارد",
           "propertyTitle": "مبایعه‌نامه",
           "totalFloors": 2,
           "videoUrl": "https://www.aparat.com/v/zztodr9"
         },
         {"propertyId": "v-golha-shomali",
-          "title": "ویلای لوکس ساحلی نوشهر",
+          "title": "مدرن ویلای دلباز نزدیک ساحل (شمالی)",
           "builtArea": "۱۵۰",
           "plotArea": "۲۵۰",
           "price": "سه و نیم میلیارد",
@@ -64,7 +64,7 @@
           "toiletType": "ایرانی و خارجی",
           "coolingSystem": "ندارد",
           "heatingSystem": "ندارد",
-          "hasWaterHeater": false,
+          "waterHeaterSystem": "ندارد",
           "propertyTitle": "مبایعه‌نامه",
           "totalFloors": 2
         },
@@ -92,7 +92,7 @@
           "toiletType": "ایرانی و خارجی",
           "coolingSystem": "اسپلیت",
           "heatingSystem": "اسپلیت",
-          "hasWaterHeater": true,
+          "waterHeaterSystem": "پکیج",
           "propertyTitle": "مبایعه‌نامه",
           "totalFloors": 1
         },
@@ -103,12 +103,8 @@
           "plotArea": 200,
           "price": 42000000000,
           "location": "چالوس",
-          "coverImage": "/images/properties/villa-north-4.jpg",
-          "description": "ویلای لاکچری با استخر بی‌نهایت و ویوی ۳۶۰ درجه به دریا",
-          "agent": {
-            "name": "علی محمدی",
-            "avatar": "path/to/avatar.jpg"
-          }
+          "coverImage": "/images/shirinbol/IMG_20230428_151037_904.jpg",
+          "description": "ویلای لاکچری با استخر بی‌نهایت و ویوی ۳۶۰ درجه به دریا"
         },
         {
           "propertyId": "villa-north-5",

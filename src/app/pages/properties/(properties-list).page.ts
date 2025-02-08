@@ -4,13 +4,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { RouterLink } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Category, PropertyResponse } from './models';
+import { Category } from './models';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
+import { DataLoaderService } from '../../services/data-loader.service';
 
 @Component({
   selector: 'app-properties-list',
@@ -225,7 +225,7 @@ import { MatIconModule } from '@angular/material/icon';
   ],
 })
 export default class PropertiesListComponent {
-  private http = inject(HttpClient);
+  private dataLoader = inject(DataLoaderService);
   private viewportScroller = inject(ViewportScroller);
   private breakpointObserver = inject(BreakpointObserver);
   categories: Category[] = [];
@@ -236,11 +236,13 @@ export default class PropertiesListComponent {
   );
 
   ngOnInit() {
-    this.http.get<PropertyResponse>('/data/property-listings.json').subscribe({
-      next: (response) => {
-        this.categories = response.categories;
+    this.dataLoader.getCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
       },
-      error: (error) => { },
+      error: (error) => {
+        console.error('Error loading categories:', error);
+      },
     });
   }
   ngAfterViewInit() {
