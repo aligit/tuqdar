@@ -47,8 +47,8 @@ import { IconComponent } from '../icon/icon.component';
 <!--          <a mat-button routerLink="/about" class="menu-item">درباره ما</a>    -->
 <!--         <a mat-button routerLink="/contact" class="menu-item">اطلاعات تماس</a> -->
         </div>
-        <button mat-raised-button color="accent" class="cta-button">
-          ۰۹۱۲۰۶۸۴۵۳۹
+        <button mat-raised-button color="accent" class="cta-button" (click)="revealPhone()">
+          {{ isPhoneRevealed ? '۰۹۱۲۰۶۸۴۵۳۹' : 'نمایش شماره تماس' }}
         </button>
       }
     </mat-toolbar>
@@ -178,6 +178,7 @@ export class Header2Component {
   @ViewChild('drawer') drawer!: MatSidenav;
 
   private breakpointObserver = inject(BreakpointObserver);
+  isPhoneRevealed = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -188,5 +189,9 @@ export class Header2Component {
 
   toggleDrawer() {
     this.drawer?.toggle();
+  }
+
+  revealPhone() {
+    this.isPhoneRevealed = true;
   }
 }
