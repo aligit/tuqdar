@@ -37,27 +37,37 @@
           "heatingSystem": "ندارد",
           "hasWaterHeater": false,
           "propertyTitle": "مبایعه‌نامه",
-          "totalFloors": 2
+          "totalFloors": 2,
+          "videoUrl": "https://www.aparat.com/v/zztodr9"
         },
         {"propertyId": "v-golha-shomali",
           "title": "ویلای لوکس ساحلی نوشهر",
-          "builtArea": 150,
-          "plotArea": 250,
-          "price": 3500000000,
+          "builtArea": "۱۵۰",
+          "plotArea": "۲۵۰",
+          "price": "سه و نیم میلیارد",
           "location": "طوقدار",
-          "coverImage": "/images/1.jpg",
+          "coverImage": "/images/golha-shomali/landscape.JPEG",
           "images": [
-            "/images/1.jpg",
-            "/images/3.jpg",
-            "/images/4.jpg",
-            "/images/5.jpg",
-            "/images/properties/villa-north-1/exterior.jpg"
+            "/images/golha-shomali/pool.jpg",
+            "/images/golha-shomali/living-room.JPEG",
+            "/images/golha-shomali/kitchen.JPEG",
+            "/images/golha-shomali/master-room.JPEG",
+            "/images/golha-shomali/properties/villa-north-1/exterior.jpg"
           ],
           "description": "ویلای مدرن و لوکس با دسترسی مستقیم به ساحل",
-          "agent": {
-            "name": "علی محمدی",
-            "avatar": "path/to/avatar.jpg"
-          }},
+          "numberOfRooms": "۳",
+          "yearBuilt": "۱۴۰۱",
+          "hasParking": true,
+          "hasCellar": true,
+          "hasBalcony": true,
+          "floorMaterial": "سرامیک",
+          "toiletType": "ایرانی و خارجی",
+          "coolingSystem": "ندارد",
+          "heatingSystem": "ندارد",
+          "hasWaterHeater": false,
+          "propertyTitle": "مبایعه‌نامه",
+          "totalFloors": 2
+        },
         {
           "propertyId": "v-toranj-2bar",
           "title": "ویلای مدرن محمودآباد",
