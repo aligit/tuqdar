@@ -75,12 +75,26 @@
           "plotArea": 200,
           "price": 32000000000,
           "location": "محمودآباد",
-          "coverImage": "/images/properties/villa-north-3.jpg",
+          "coverImage": "/images/toranj-2bar/landscape.JPEG",
+          "images": [
+            "/images/toranj-2bar/landscape-2.JPEG",
+            "/images/toranj-2bar/landscape-3.JPEG",
+            "/images/toranj-2bar/landscape-4.JPEG"
+          ],
           "description": "ویلای نوساز با طراحی مدرن و استخر سرپوشیده",
-          "agent": {
-            "name": "علی محمدی",
-            "avatar": "path/to/avatar.jpg"
-          }
+          "videoUrl": "https://www.aparat.com/v/wndy9ec",
+          "numberOfRooms": "۳",
+          "yearBuilt": "۱۴۰۱",
+          "hasParking": true,
+          "hasCellar": true,
+          "hasBalcony": false,
+          "floorMaterial": "موکت",
+          "toiletType": "ایرانی و خارجی",
+          "coolingSystem": "اسپلیت",
+          "heatingSystem": "اسپلیت",
+          "hasWaterHeater": true,
+          "propertyTitle": "مبایعه‌نامه",
+          "totalFloors": 1
         },
         {
           "propertyId": "v-shirinbol",

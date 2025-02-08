@@ -16,6 +16,7 @@ import { GalleryModule, Gallery, GalleryItem, ImageItem } from 'ng-gallery';
 import { Lightbox, LightboxModule } from 'ng-gallery/lightbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { PersianNumberPipe } from '../../shared/pipes/persian-number.pipe';
 
 @Component({
   standalone: true,
@@ -32,6 +33,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     GalleryModule,
     MatChipsModule,
     MatTooltipModule,
+    PersianNumberPipe
   ],
   template: `
     @if (property$ | async; as property) {
@@ -114,7 +116,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
                 @if (property.totalFloors && property.totalFloors > 0 ) {
                   <div class="feature">
                     <mat-icon svgIcon="layers"/>
-                    <span> {{ property.totalFloors }} طبقه </span>
+                    <span> {{ property.totalFloors | persianNumber }} طبقه </span>
                   </div>
                 }
               </div>
