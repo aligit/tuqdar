@@ -6,7 +6,7 @@
       "properties": [
         {
           "propertyId": "v-golha-jonubi",
-          "title": "مدرن ویلای دلباز نزدیک ساحل (جنوبی)",
+          "title": "ویلای مدرن دلباز نزدیک ساحل (جنوبی)",
           "builtArea": "۱۵۰",
           "plotArea": "۲۵۰",
           "price": "سه و نیم میلیارد",
@@ -25,7 +25,7 @@
             "/images/golha-jonubi/room-2-2.jpg",
             "/images/golha-jonubi/room-3.jpg"
           ],
-          "description": "ویلای مدرن و لوکس با دسترسی مستقیم به ساحل",
+          "description": "مدرویلای ن و لوکس با دسترسی مستقیم به ساحل",
           "numberOfRooms": "۳",
           "yearBuilt": "۱۴۰۱",
           "hasParking": true,
@@ -41,7 +41,7 @@
           "videoUrl": "https://www.aparat.com/v/zztodr9"
         },
         {"propertyId": "v-golha-shomali",
-          "title": "مدرن ویلای دلباز نزدیک ساحل (شمالی)",
+          "title": "ویلای مدرن دلباز نزدیک ساحل (شمالی)",
           "builtArea": "۱۵۰",
           "plotArea": "۲۵۰",
           "price": "سه و نیم میلیارد",
@@ -70,11 +70,11 @@
         },
         {
           "propertyId": "v-toranj-2bar",
-          "title": "ویلای مدرن محمودآباد",
-          "builtArea": 100,
-          "plotArea": 200,
-          "price": 32000000000,
-          "location": "محمودآباد",
+          "title": "ویلای مدرن دوبر نزدیک دریا",
+          "builtArea": "۱۶۰",
+          "plotArea": "۳۵۰",
+          "price": "پنج میلیارد و سیصد",
+          "location": "طوقدار",
           "coverImage": "/images/toranj-2bar/landscape.JPEG",
           "images": [
             "/images/toranj-2bar/landscape-2.JPEG",
