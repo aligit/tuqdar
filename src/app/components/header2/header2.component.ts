@@ -68,7 +68,6 @@ import { RouterLink } from '@angular/router';
           <mat-nav-list>
             <a mat-list-item routerLink="/property/toghdar">املاک</a>
             <a mat-list-item routerLink="/about">درباره ما</a>
-            <a mat-list-item routerLink="/contact">اطلاعات تماس</a>
             <a mat-list-item class="cta-button-mobile">درخواست بازدید</a>
           </mat-nav-list>
         </mat-sidenav>
