@@ -43,7 +43,7 @@ export default defineConfig(({ mode }) => ({
           // },
         ],
         sitemap: {
-          host: 'https://aligit.github.io/tuqdar/',
+          host: 'https://2ghou.com',
         },
         postRenderingHooks: [
           async (route) => {

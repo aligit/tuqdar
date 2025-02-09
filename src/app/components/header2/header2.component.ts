@@ -66,9 +66,11 @@ import { RouterLink } from '@angular/router';
           [fixedTopGap]="56"
         >
           <mat-nav-list>
-            <a mat-list-item routerLink="/property/toghdar">املاک</a>
-            <a mat-list-item routerLink="/about">درباره ما</a>
-            <a mat-list-item class="cta-button-mobile">درخواست بازدید</a>
+            <a mat-list-item routerLink="/properties">املاک</a>
+            <a mat-list-item routerLink="/about">تماس</a>
+            <button mat-list-item (click)="revealPhone()" class="cta-button-mobile">
+              {{ isPhoneRevealed ? '۰۹۱۲۰۶۸۴۵۳۹' : 'نمایش شماره تماس' }}
+            </button>
           </mat-nav-list>
         </mat-sidenav>
       }
